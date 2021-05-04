@@ -1,0 +1,32 @@
+{
+  "collection": [
+    {
+      "id": 1,
+      "title": "School"
+    },
+    {
+      "id": 2,
+      "title": "College"
+    },
+    {
+      "id": 3,
+      "title": "Project"
+    },
+    {
+      "title": "hehehe",
+      "id": 4
+    },
+    {
+      "title": "WOWOTU",
+      "id": 5
+    },
+    {
+      "title": "Niigga",
+      "id": 6
+    },
+    {
+      "title": "My Cool collection",
+      "id": 7
+    }
+  ]
+}

@@ -1,13 +1,163 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+	--main-bg: #181820;
+	--collection-card-bg: #21212b;
+
+	--border-dark: #30303d;
+
+	--white-1: #64646b;
+	--white-2: #7c7c82;
+
+	--font-hover-color: #fc73a5;
+
+	--main-font-size: 1.1rem; 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+	margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: var(--main-bg);
+  color: #fff;
+  font-size: var(--main-font-size);
+  box-sizing: border-box;
+}
+
+header {
+	padding: 0.5rem 2rem;
+	background: var(--collection-card-bg);
+}
+
+.Home {
+	margin: 2rem auto;
+	max-width: 900px;	
+}
+
+.addCollection {
+	text-align: center;
+	font-size: 1.5rem;
+	padding: 0.9rem;
+	max-width: 120px;
+	margin: auto;
+	cursor: pointer;
+	border: 2px solid var(--border-dark);
+	border-radius: 1.2rem;
+	color: var(--white-1);
+	font-weight: bold;
+}
+.addCollection:hover {
+	opacity: 0.8;
+	transition: all 250ms ease;
+	color: var(--font-hover-color);
+	border-color: var(--font-hover-color);
+}
+
+
+/* Collection Component */
+.collection-cards-grid{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-gap: 1rem; 
+}
+.collection-card {
+	position: relative;
+	margin-top: 2rem;
+	background-color: var(--collection-card-bg);
+	max-width: 240px;
+	padding: 1rem;
+	border-radius: 1.2rem;
+	overflow-x: hidden;
+}
+.collection-card:hover {
+	transform: translateY(-5px);
+	transition: transform 200ms ease;
+	
+}
+.tasks-done {
+	color: var(--white-2);
+	font-size: 1rem;
+}
+.card-title:hover {
+	color: var(--font-hover-color);
+	cursor: pointer;
+}
+.delete-btn {
+	color: var(--font-hover-color);
+	cursor: pointer;
+}
+
+.collectionActions {
+	margin-top: 1rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+/* Collection Modal Css */
+.modal {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 800ms ease;
+}
+.modal-content {
+	background: var(--main-bg);
+	border-radius: 0.5rem;
+	overflow: hidden;	
+	min-width: 600px;
+	font-size: 1.2rem;
+}
+.modal-header {
+	background: var(--collection-card-bg);
+	padding: 1rem 1.2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.modal-body {
+	padding: 1rem;
+}
+.close-modal-btn {
+	cursor: pointer;
+	color: var(--font-hover-color);
+}
+.close-modal-btn:hover {
+	text-decoration: underline;
+	text-decoration-color: var(--font-hover-color);
+}
+form {
+	display: flex;
+	flex-direction: column;
+}
+form input {
+	max-width: 300px;
+	font-size: 1.2rem;
+	outline: none;
+	padding: 5px;
+	margin-top: 1rem;
+	border-radius: 5px;
+	border: none;
+}
+button.submit {
+	margin-top: 2rem;
+	max-width: 150px;
+	padding: 0.6rem;
+	cursor: pointer;
+	background: transparent;
+	border-radius: 5px;
+	border: 2px solid var(--border-dark);
+	color: #fff;
+	outline: none;
+}
+button.submit:hover {
+	background: var(--font-hover-color);
+	transition: all 900ms ease;
 }
