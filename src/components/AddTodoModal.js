@@ -11,7 +11,8 @@ export default function AddTodoModal(props) {
 		e.preventDefault();
 
 		let todos = JSON.parse(localStorage.getItem("todos") || "[]");
-		todos.push({ id: todos[todos.length - 1].id + 1, title, description,date: new Date().toLocaleDateString() })
+		console.log(todos)
+		todos.push({ id: !todos.length > 0 ? 1 : todos[todos.length - 1].id + 1 , title, description,date: new Date().toLocaleDateString() })
 		localStorage.setItem("todos", JSON.stringify(todos));
 		history.go('/collection');
 	}
