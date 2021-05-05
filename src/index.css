@@ -25,14 +25,38 @@ body {
   box-sizing: border-box;
 }
 
-header {
-	padding: 0.5rem 2rem;
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem 6rem;
 	background: var(--collection-card-bg);
+}
+nav > .links .link {
+	margin-right: 15px;
+	font-size: 1.2rem;
+	text-decoration: none;
+}
+.link {
+	color: #f1f1f1;
+	text-decoration: none;
+}
+.link:hover {
+	color: var(--font-hover-color);
+}
+.logo:hover {
+	color: #fff;
 }
 
 .Home {
 	margin: 2rem auto;
 	max-width: 900px;	
+}
+
+.heading {
+	/*border-bottom: 3px solid var(--font-hover-color);*/
+	/*text-decoration: underline;*/
+	text-decoration-style: solid 5px;
 }
 
 .addCollection {
@@ -50,22 +74,25 @@ header {
 .addCollection:hover {
 	opacity: 0.8;
 	transition: all 250ms ease;
-	color: var(--font-hover-color);
 	border-color: var(--font-hover-color);
 }
-
+.empty {
+	margin-top: 5rem;
+	text-align: center;
+}
 
 /* Collection Component */
 .collection-cards-grid{
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	grid-gap: 1rem; 
+	grid-auto-rows: 1fr;
 }
 .collection-card {
 	position: relative;
 	margin-top: 2rem;
 	background-color: var(--collection-card-bg);
-	max-width: 240px;
+	min-width: 1fr;
 	padding: 1rem;
 	border-radius: 1.2rem;
 	overflow-x: hidden;
@@ -73,18 +100,26 @@ header {
 .collection-card:hover {
 	transform: translateY(-5px);
 	transition: transform 200ms ease;
-	
 }
-.tasks-done {
+.card-description {
+	margin-top: 1rem;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 1rem;
+	font-weight: normal;
+}
+.card-description:hover {
+	color: #fff;
+}
+.tasks-date{
 	color: var(--white-2);
 	font-size: 1rem;
 }
 .card-title:hover {
-	color: var(--font-hover-color);
 	cursor: pointer;
 }
 .delete-btn {
-	color: var(--font-hover-color);
 	cursor: pointer;
 }
 
@@ -137,7 +172,8 @@ form {
 	display: flex;
 	flex-direction: column;
 }
-form input {
+form input,
+form textarea {
 	max-width: 300px;
 	font-size: 1.2rem;
 	outline: none;
@@ -145,6 +181,11 @@ form input {
 	margin-top: 1rem;
 	border-radius: 5px;
 	border: none;
+}
+textarea {
+	min-width: 97%;
+	font-size: 1rem;
+	font-family: inherit;
 }
 button.submit {
 	margin-top: 2rem;
@@ -160,4 +201,13 @@ button.submit {
 button.submit:hover {
 	background: var(--font-hover-color);
 	transition: all 900ms ease;
+}
+label {
+	margin-top: 1rem;
+}
+textarea {
+	max-width: 100%;
+	min-height: 50px;
+	max-height: 200px;
+	resize: vertical;
 }

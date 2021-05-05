@@ -1,12 +1,25 @@
-import Home from './Home.js';
+import Todos from './Todos.js';
+import TodoDetails from './TodoDetails';
 import Navbar from './Navbar.jsx';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-        <Navbar />
-        <Home />
-    </div>
+    <Router>
+    	<div className="App">
+	        <Navbar />
+	        <Switch>
+	        	<Route exact path="/">
+	        	</Route>
+	        	<Route path="/todos">
+	        		<Todos />
+	        	</Route>
+	        	<Route path="/todo/:id">
+	        		<TodoDetails />
+	        	</Route>
+	        </Switch>
+	    </div>
+    </Router>
   );
 }
 
