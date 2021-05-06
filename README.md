@@ -10,7 +10,8 @@ $ npm install
 $ npm start
 ```
 # Note
-Remove `BROWSER='vivaldi-stable'` in [package.json](https://github.com/arsen1c/React-Todo/blob/master/package.json) file if you are not using a vivaldi browser on a linux machine
+* Remove `BROWSER='vivaldi-stable'` in [package.json](https://github.com/arsen1c/React-Todo/blob/master/package.json) file if you are not using a vivaldi browser on a linux machine
+* Lot features are missing on this app, they will be added later
 
 # Screenshots
 
