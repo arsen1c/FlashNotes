@@ -23,11 +23,15 @@ export default function Home (props) {
 		})
 	}	
 
-	if (window.localStorage.getItem("todos")) {
-		const collections = window.localStorage.getItem("todos");
-	} else {
-		window.localStorage.setItem("todos", "[]");
-	}	
+	try {
+		if (window.localStorage.getItem("todos")) {
+			const collections = window.localStorage.getItem("todos");
+		} else {
+			window.localStorage.setItem("todos", "[]");
+		}
+	} catch (e) {
+		setError(e.message)
+	}
 
 	return (
 		<div className="collection">
@@ -35,13 +39,16 @@ export default function Home (props) {
 			<div className="addCollection link" onClick={() => handleModal(true)}>
 				+
 			</div>
+			<div className="division">
+				<div className="total-todos">Total todos: <span className="total">{collection.length}</span></div>
+			</div>
 			{ error && <div className="error">error</div> }
 			<section className="collection-cards-grid">
 				{
 					collection.map((item, index) => (
 						<div className="collection-card" key={item.id}>
-							<Link className="link" to={`/todo/${item.id}`}>
-								<h3 className="card-title ">
+							<Link className="link" to={`/todos/${item.id}`}>
+								<h3 className="card-title">
 									{ item.title }
 								</h3>
 							</Link>

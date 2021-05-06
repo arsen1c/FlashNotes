@@ -1,29 +1,38 @@
-import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
+import { useHistory } from 'react-router-dom';
 
 export default function TodoDetails() {
-	const [collection, setCollection] = useState(JSON.parse(window.localStorage.getItem("todos")));
-	const [data, setData] = useState(null);
-	const [isPending, setisPending] = useState(true);
+	const todos = JSON.parse(window.localStorage.getItem("todos"));
 	const { id } = useParams();
+	const history = useHistory();
 
-	// const tdocollection.map((item) => {
-	// 	if (item.id === parseInt(id)) {
-	// 		console.log('Item Found: ', item)
-	// 		setisPending(false);
-	// 		setData(item);
-	// 	}
-	// })
+	let todo = todos.filter((item, index) => {
+		return item.id === parseInt(id);
+	})
+	if (todo.length > 0) {
+		console.log('Todo after setting: ', todo);
+	} else {
+		return null;
+	}
+
+	const handleBackButton = () => {
+		history.push("/todos");
+	}
 
 	return(
 		<div className="details">
-			{/*{ isPending && <div className="loading">Loading...</div> }
-			{ data && (
-				<div className="details">
-					<div className="title">{ data.title }</div>
-					<div className="description">{ data.description }</div>
-				</div>
-			)}*/}
+
+			{ todo.length > 0 && 
+				<div className="details-content">
+					<i class="fas fa-arrow-left fa-2x" onClick={handleBackButton}></i>			
+					<h1 className="details-heading">{todo[0].title}</h1>
+					<div className="details-date tasks-date">{todo[0].date}</div>	
+					<div className="details-description">
+						<ReactMarkdown  children={todo[0].description} />
+					</div>
+				</div> 
+			}
 		</div>
 	)
 }
