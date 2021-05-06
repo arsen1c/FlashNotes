@@ -1,5 +1,7 @@
 # Todo App using Reactjs
 
+A todo app built using ReactJS which stores the todos locally on the localStorage of your browser.
+
 **Design Inspiration: [Dribble](https://dribbble.com/shots/15154577-Collections)**
 
 # Run locally
