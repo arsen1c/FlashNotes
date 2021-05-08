@@ -3511,7 +3511,11 @@
   "resolved" "https://registry.npmjs.org/comma-separated-tokens/-/comma-separated-tokens-1.0.8.tgz"
   "version" "1.0.8"
 
+<<<<<<< HEAD
 "commander@^2.18.0", "commander@^2.20.0":
+=======
+"commander@^2.20.0":
+>>>>>>> 42b44a2592e14ab1f1a51547dba3fbcb36257f42
   "integrity" "sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ=="
   "resolved" "https://registry.npmjs.org/commander/-/commander-2.20.3.tgz"
   "version" "2.20.3"
@@ -11223,6 +11227,7 @@
   dependencies:
     "punycode" "^2.1.1"
 
+<<<<<<< HEAD
 "trim-repeated@^1.0.0":
   "integrity" "sha1-42RqLqTokTEr9+rObPsFOAvAHCE="
   "resolved" "https://registry.npmjs.org/trim-repeated/-/trim-repeated-1.0.0.tgz"
@@ -11230,6 +11235,8 @@
   dependencies:
     "escape-string-regexp" "^1.0.2"
 
+=======
+>>>>>>> 42b44a2592e14ab1f1a51547dba3fbcb36257f42
 "trough@^1.0.0":
   "integrity" "sha512-rvuRbTarPXmMb79SmzEp8aqXNKcK+y0XaB298IXueQ8I2PsrATcPBCSPyK/dDNa2iWOhKlfNnOjdAOTBU/nkFA=="
   "resolved" "https://registry.npmjs.org/trough/-/trough-1.0.5.tgz"

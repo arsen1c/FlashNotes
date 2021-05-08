@@ -54,8 +54,6 @@ nav > .links .link {
 }
 
 .heading {
-	/*border-bottom: 3px solid var(--font-hover-color);*/
-	/*text-decoration: underline;*/
 	text-decoration-style: solid 5px;
 }
 
@@ -64,17 +62,20 @@ nav > .links .link {
 	font-size: 1.5rem;
 	padding: 0.9rem;
 	max-width: 120px;
-	margin: auto;
+	margin: 1rem auto;
 	cursor: pointer;
 	border: 2px solid var(--border-dark);
 	border-radius: 1.2rem;
 	color: var(--white-1);
 	font-weight: bold;
+
 }
 .addCollection:hover {
 	opacity: 0.8;
 	transition: all 250ms ease;
-	border-color: var(--font-hover-color);
+	/*border-color: var(--font-hover-color);*/
+	border-left: 2px solid var(--font-hover-color);
+	border-right: 2px solid var(--font-hover-color);
 }
 .empty {
 	margin-top: 5rem;
@@ -87,6 +88,7 @@ nav > .links .link {
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	grid-gap: 1rem; 
 	grid-auto-rows: 1fr;
+	
 }
 .collection-card {
 	position: relative;
@@ -128,7 +130,18 @@ nav > .links .link {
 	display: flex;
 	justify-content: space-between;
 }
-
+.division {
+	border-top: 2px solid var(--font-hover-color);
+}
+.total-todos {
+	margin-top: 0.5rem;
+	font-weight: bold;
+	text-align: right;
+}
+.total-todos > span {
+	color: var(--font-hover-color);
+	text-decoration: underline; 
+}
 
 /* Collection Modal Css */
 .modal {
@@ -210,4 +223,32 @@ textarea {
 	min-height: 50px;
 	max-height: 200px;
 	resize: vertical;
+}
+
+
+/* Todo Details Page */
+.details {
+	margin: 5rem auto;
+	max-width: 600px;
+	background: var(--collection-card-bg);
+	border-radius: 1rem;
+	padding: 2rem;
+}
+.details-content > i {
+	margin-bottom: 0.5rem;
+	cursor: pointer;
+}
+.details-content > i:hover {
+	color: var(--font-hover-color);
+}
+.details-description {
+	margin-top: 1rem;
+}
+pre {
+	width: 100%;
+	background-color: var(--main-bg);
+	padding: 15px 5px;
+	border-radius: 0.5rem;
+	overflow-x: auto;
+	margin: 1rem 0;
 }

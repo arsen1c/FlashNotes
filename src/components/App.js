@@ -11,10 +11,10 @@ function App() {
 	        <Switch>
 	        	<Route exact path="/">
 	        	</Route>
-	        	<Route path="/todos">
+	        	<Route exact path="/todos">
 	        		<Todos />
 	        	</Route>
-	        	<Route path="/todo/:id">
+	        	<Route path="/todos/:id">
 	        		<TodoDetails />
 	        	</Route>
 	        </Switch>

@@ -1,10 +1,10 @@
 import Home from './Home.js'
-// import useFetch from '../hooks/useFetch';
 import { useState } from 'react';
 
 function Todos() {
- 	const [collection, setCollection] = useState(JSON.parse(window.localStorage.getItem("todos")));
  	const [error, setError] = useState(null);
+
+ 	const collection = JSON.parse(window.localStorage.getItem("todos"));
  	
  	try {
  		if (collection === null) {
