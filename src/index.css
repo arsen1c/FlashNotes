@@ -10,6 +10,7 @@
 	/* Secondary Colors */
 	--white-1: #64646b;
 	--white-2: #7c7c82;
+	--white-3: #9e9ea3;
 	
 	/* Font Sizes */
 	--main-font-size: 1.1rem; 
@@ -18,7 +19,16 @@
 ::selection {
 	background: var(--white-1);
 }
-
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--white-2);
+  opacity: 1; /* Firefox */
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: var(--white-2);
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: var(--white-2);
+}
 * {
 	margin: 0;
 }
@@ -50,14 +60,20 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0.5rem 6rem;
+	padding: 0.5rem 2rem;
 	background: var(--collection-card-bg);
 	position: relative;
 }
 nav > .bars {
 	display: none;
 	position: absolute;
-	left: 2rem;
+	left: 1rem;
+	font-size: 2.1rem;
+	color: var(--white-1);
+	cursor: pointer;
+}
+nav > .bars:hover {
+	color: var(--white-2);
 }
 nav > .links .link {
 	margin-right: 15px;
@@ -74,8 +90,15 @@ nav > .links {
 .link:hover {
 	color: var(--accent-color);
 }
+.logo {
+	background: -webkit-linear-gradient(190deg, #f7c79c, #fc73a5);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+    transition: transform ease-in;
+}
 .logo:hover {
-	color: #fff;
+	/*color: #fff;*/
+	clor: -webkit-linear-gradient(190deg, #f7c79c, #fc73a5);
 }
 .github {
 	font-size: 2rem;
@@ -230,7 +253,7 @@ nav > .links {
 	top: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.7);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -269,17 +292,18 @@ form {
 }
 form input,
 form textarea {
-	max-width: 300px;
+	/*max-width: 300px;*/
 	font-size: 1.2rem;
 	outline: none;
 	padding: 5px;
 	margin-top: 1rem;
-	border-radius: 5px;
+	border-radius: 2px;
 	border: none;
+	background: var(--border-dark);
+	color: #fff;
 }
 textarea {
 	min-width: 97%;
-	font-size: 1rem;
 	font-family: inherit;
 }
 button.submit {
@@ -299,10 +323,12 @@ button.submit:hover {
 }
 label {
 	margin-top: 1rem;
+	font-size: 1.3rem;
+	text-decoration:underline 3px solid var(--accent-color);
 }
 textarea {
 	max-width: 100%;
-	min-height: 100px;
+	min-height: 200px;
 	max-height: 200px;
 	resize: vertical;
 }
@@ -327,18 +353,22 @@ textarea {
 	margin-top: 1rem;
 }
 
-
-
 /* MEDIA QUERIES */
+
 @media (max-width: 920px) {
 	.collection {
 		margin: 0 1rem;
-		transition: all 300ms ease;
 	}
 }
+
 @media (max-width: 620px) {
 	.root {
 		margin-top: 15rem;
+		font-size: 1rem;
+		padding: 0;
+	}
+	.Home {
+		max-width: 100%;
 	}
 	.collection {
 		margin: 0 1rem;
@@ -353,6 +383,7 @@ textarea {
 		font-size: 1.8rem;
 		border-radius: 5px;
 		border-top-right-radius: 25%;
+		border-bottom-left-radius: 25%;
 		z-index: 10;
 		background: -webkit-linear-gradient(180deg, #f7c79c, #fc73a5);
 		color: var(--main-bg);
@@ -366,15 +397,16 @@ textarea {
 	.division {
 		margin-top: 1rem;
 	}
+	/* Modal */
 	.modal {
 		display: block;
-		background-color: rgba(0,0,0,0.7);
 	}
 	.modal-content {
-		margin: 6rem auto;
+		margin: 8rem auto;
 		min-width: 100%;
 		font-size: 1rem;
 	}
+	/* Cards */
 	.collection-card {
 		margin: 0
 	}
@@ -387,16 +419,17 @@ textarea {
 
 	/* Details Page */
 	.details {
-		margin: 0;
+		margin: 5px 0;
 		border-radius: 0;
-		border-top: 1px solid var(--accent-color)
 	}
-
+	.details-content h1{
+		font-size: 1.5rem;
+	}
 	/* Navbar */
 	nav {
 		display: block;
-		/*position: fixed;*/
 		text-align: center;
+		padding: 0.5rem 1rem;
 	}
 	nav > .links {
 		display: none;
@@ -410,5 +443,10 @@ textarea {
 	}
 	nav  > .links > a > .github {
 		margin-top: 1rem;
+	}
+
+	/*Next Button */
+	.next {
+		font-size: 2rem;
 	}
 }
