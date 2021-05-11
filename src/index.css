@@ -52,11 +52,20 @@ nav {
 	align-items: center;
 	padding: 0.5rem 6rem;
 	background: var(--collection-card-bg);
+	position: relative;
+}
+nav > .bars {
+	display: none;
+	position: absolute;
+	left: 2rem;
 }
 nav > .links .link {
 	margin-right: 15px;
 	font-size: 1.2rem;
 	text-decoration: none;
+}
+nav > .links {
+	display: block;
 }
 .link {
 	color: #f1f1f1;
@@ -226,6 +235,7 @@ nav > .links .link {
 	align-items: center;
 	justify-content: center;
 	transition: all 800ms ease;
+	z-index: 20;
 }
 .modal-content {
 	background: var(--main-bg);
@@ -292,7 +302,7 @@ label {
 }
 textarea {
 	max-width: 100%;
-	min-height: 50px;
+	min-height: 100px;
 	max-height: 200px;
 	resize: vertical;
 }
@@ -315,4 +325,90 @@ textarea {
 }
 .details-description {
 	margin-top: 1rem;
+}
+
+
+
+/* MEDIA QUERIES */
+@media (max-width: 920px) {
+	.collection {
+		margin: 0 1rem;
+		transition: all 300ms ease;
+	}
+}
+@media (max-width: 620px) {
+	.root {
+		margin-top: 15rem;
+	}
+	.collection {
+		margin: 0 1rem;
+		transition: all 300ms ease;
+	}
+	.addCollection {
+		border-radius: 0;
+		position: fixed;
+		right: 2rem;
+		bottom: 2rem;
+		padding: 1rem;
+		font-size: 1.8rem;
+		border-radius: 5px;
+		border-top-right-radius: 25%;
+		z-index: 10;
+		background: -webkit-linear-gradient(180deg, #f7c79c, #fc73a5);
+		color: var(--main-bg);
+		border: none;
+	}
+	.addCollection:hover {
+		border: none;
+		opacity: 1;
+		color: var(--main-bg);
+	}
+	.division {
+		margin-top: 1rem;
+	}
+	.modal {
+		display: block;
+		background-color: rgba(0,0,0,0.7);
+	}
+	.modal-content {
+		margin: 6rem auto;
+		min-width: 100%;
+		font-size: 1rem;
+	}
+	.collection-card {
+		margin: 0
+	}
+	.collection-card:hover {
+		transform: none;
+	}
+	.total-todos {
+		margin-bottom: 1rem;
+	}
+
+	/* Details Page */
+	.details {
+		margin: 0;
+		border-radius: 0;
+		border-top: 1px solid var(--accent-color)
+	}
+
+	/* Navbar */
+	nav {
+		display: block;
+		/*position: fixed;*/
+		text-align: center;
+	}
+	nav > .links {
+		display: none;
+	}
+	nav .bars {
+		display: block;
+	}
+	nav  > .links > .link {
+		margin-top: 1rem;
+		display: block;
+	}
+	nav  > .links > a > .github {
+		margin-top: 1rem;
+	}
 }

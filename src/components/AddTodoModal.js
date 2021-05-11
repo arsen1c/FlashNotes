@@ -25,7 +25,7 @@ export default function AddTodoModal(props) {
 		<div className="modal">
 			<div className="modal-content">
 				<div className="modal-header">
-					<h2>Add new todo</h2>
+					<h2>📑 Add new todo</h2>
 					<span onClick={props.onClose} className="close-modal-btn"> Close</span>
 				</div>
 				<div className="modal-body">
@@ -33,7 +33,7 @@ export default function AddTodoModal(props) {
 						<label><h3>Todo title</h3></label>
 						<input name="title" type="text" onChange={(e) => setTitle(e.target.value)} placeholder="Your cool title..." required />
 						<label><h3>Todo description</h3></label>
-						<textarea name="description" className="textarea" onChange={(e) => setDescription(e.target.value)} placeholder="Your cool description..." required />
+						<textarea name="description" className="textarea" onChange={(e) => setDescription(e.target.value)} placeholder="Your cool description..." />
 						<button className="submit">Submit</button>
 					</form>
 				</div>

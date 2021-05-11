@@ -13,7 +13,6 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
-  "homepage": "arsen1c.github.io/React-Todo",
   "scripts": {
     "start": "BROWSER='vivaldi-stable' react-scripts start",
     "build": "BROWSER='vivaldi-stable' react-scripts build",
