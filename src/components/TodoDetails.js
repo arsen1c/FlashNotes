@@ -10,11 +10,6 @@ export default function TodoDetails() {
 	let todo = todos.filter((item, index) => {
 		return item.id === parseInt(id);
 	})
-	if (todo.length > 0) {
-		console.log('Todo after setting: ', todo);
-	} else {
-		return null;
-	}
 
 	const handleBackButton = () => {
 		history.push("/todos");
@@ -25,7 +20,7 @@ export default function TodoDetails() {
 
 			{ todo.length > 0 && 
 				<div className="details-content">
-					<i class="fas fa-arrow-left fa-2x" onClick={handleBackButton}></i>			
+					<i className="fas fa-arrow-left fa-2x" onClick={handleBackButton}></i>			
 					<h1 className="details-heading">{todo[0].title}</h1>
 					<div className="details-date tasks-date">{todo[0].date}</div>	
 					<div className="details-description">

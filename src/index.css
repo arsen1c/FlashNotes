@@ -1,15 +1,22 @@
+/* General Styling */
+
 :root {
+	/* Primary Colors */
 	--main-bg: #181820;
 	--collection-card-bg: #21212b;
-
 	--border-dark: #30303d;
+	--accent-color: #fc73a5;
 
+	/* Secondary Colors */
 	--white-1: #64646b;
 	--white-2: #7c7c82;
-
-	--font-hover-color: #fc73a5;
-
+	
+	/* Font Sizes */
 	--main-font-size: 1.1rem; 
+}
+
+::selection {
+	background: var(--white-1);
 }
 
 * {
@@ -24,6 +31,20 @@ body {
   font-size: var(--main-font-size);
   box-sizing: border-box;
 }
+
+pre {
+	width: 100%;
+	background-color: var(--main-bg);
+	padding: 15px 5px;
+	border-radius: 0.5rem;
+	overflow-x: auto;
+	margin: 1rem 0;
+}
+a {
+	color: var(--accent-color);
+}
+
+/* Navigation Css */
 
 nav {
 	display: flex;
@@ -42,21 +63,62 @@ nav > .links .link {
 	text-decoration: none;
 }
 .link:hover {
-	color: var(--font-hover-color);
+	color: var(--accent-color);
 }
 .logo:hover {
 	color: #fff;
 }
+.github {
+	font-size: 2rem;
+}
+
+/* HOME CSS */
 
 .Home {
 	margin: 2rem auto;
 	max-width: 900px;	
 }
+.next {
+	background: -webkit-linear-gradient(190deg, #f7c79c, #fc73a5);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+  	margin-top: 1rem;
+  	cursor: pointer;
+  	animation: beat;
+  	animation-duration: 2.4s;
+    animation-iteration-count: infinite;
+    transition: transform ease-in;
+}
+.next:hover {
+	animation: none;
+}
+@keyframes beat {
+	0% {
+		transform: scale(0.9);
+		/*transform: translateX(6px);*/
+	}
+	50% {
+		transform: scale(1.1);
+		/*transform: translateX(-6px);*/
+	}
+	100% {
+		transform: scale(0.9);
+		/*transform: translateX(6px);*/
+	}
+}
+
+.root {
+	margin-top: 20rem;
+	text-align: center;
+	font-size: 1.4rem;
+	text-transform: uppercase;
+}
+
+/* HEADER CSS */
 
 .heading {
 	text-decoration-style: solid 5px;
 }
-
 .addCollection {
 	text-align: center;
 	font-size: 1.5rem;
@@ -64,7 +126,7 @@ nav > .links .link {
 	max-width: 120px;
 	margin: 1rem auto;
 	cursor: pointer;
-	border: 2px solid var(--border-dark);
+	border: 3px solid var(--border-dark);
 	border-radius: 1.2rem;
 	color: var(--white-1);
 	font-weight: bold;
@@ -73,22 +135,30 @@ nav > .links .link {
 .addCollection:hover {
 	opacity: 0.8;
 	transition: all 250ms ease;
-	/*border-color: var(--font-hover-color);*/
-	border-left: 2px solid var(--font-hover-color);
-	border-right: 2px solid var(--font-hover-color);
+	border-left: solid var(--accent-color);
+	border-right: solid var(--accent-color);
 }
 .empty {
+	color: var(--border-dark);
 	margin-top: 5rem;
 	text-align: center;
 }
+.empty h1 {
+	font-size: 3rem;
+}
+.empty div {
+	font-weight: bold;
+}
+.empty i {
+	margin-top: 2rem;
+}
 
 /* Collection Component */
+
 .collection-cards-grid{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	grid-gap: 1rem; 
-	grid-auto-rows: 1fr;
-	
 }
 .collection-card {
 	position: relative;
@@ -97,7 +167,8 @@ nav > .links .link {
 	min-width: 1fr;
 	padding: 1rem;
 	border-radius: 1.2rem;
-	overflow-x: hidden;
+	/* Give height to cards automatically */
+	align-self: start
 }
 .collection-card:hover {
 	transform: translateY(-5px);
@@ -124,14 +195,13 @@ nav > .links .link {
 .delete-btn {
 	cursor: pointer;
 }
-
 .collectionActions {
 	margin-top: 1rem;
 	display: flex;
 	justify-content: space-between;
 }
 .division {
-	border-top: 2px solid var(--font-hover-color);
+	border-top: 2px solid var(--accent-color);
 }
 .total-todos {
 	margin-top: 0.5rem;
@@ -139,11 +209,12 @@ nav > .links .link {
 	text-align: right;
 }
 .total-todos > span {
-	color: var(--font-hover-color);
+	color: var(--accent-color);
 	text-decoration: underline; 
 }
 
-/* Collection Modal Css */
+/* Todo Modal Css */
+
 .modal {
 	position: fixed;
 	left: 0;
@@ -162,6 +233,7 @@ nav > .links .link {
 	overflow: hidden;	
 	min-width: 600px;
 	font-size: 1.2rem;
+	box-shadow: rgba(0, 0, 0, 1) 0px 15px 50px;
 }
 .modal-header {
 	background: var(--collection-card-bg);
@@ -175,11 +247,11 @@ nav > .links .link {
 }
 .close-modal-btn {
 	cursor: pointer;
-	color: var(--font-hover-color);
+	color: var(--accent-color);
 }
 .close-modal-btn:hover {
 	text-decoration: underline;
-	text-decoration-color: var(--font-hover-color);
+	text-decoration-color: var(--accent-color);
 }
 form {
 	display: flex;
@@ -212,7 +284,7 @@ button.submit {
 	outline: none;
 }
 button.submit:hover {
-	background: var(--font-hover-color);
+	background: var(--accent-color);
 	transition: all 900ms ease;
 }
 label {
@@ -225,8 +297,8 @@ textarea {
 	resize: vertical;
 }
 
-
 /* Todo Details Page */
+
 .details {
 	margin: 5rem auto;
 	max-width: 600px;
@@ -239,16 +311,8 @@ textarea {
 	cursor: pointer;
 }
 .details-content > i:hover {
-	color: var(--font-hover-color);
+	color: var(--accent-color);
 }
 .details-description {
 	margin-top: 1rem;
-}
-pre {
-	width: 100%;
-	background-color: var(--main-bg);
-	padding: 15px 5px;
-	border-radius: 0.5rem;
-	overflow-x: auto;
-	margin: 1rem 0;
 }

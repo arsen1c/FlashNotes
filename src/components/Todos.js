@@ -1,4 +1,4 @@
-import Home from './Home.js'
+import TodoHome from './TodoHome.js'
 import { useState } from 'react';
 
 function Todos() {
@@ -17,7 +17,7 @@ function Todos() {
 	return (
 		<div className="Home">
 			{ error && <div>{ error }</div> }
-		    { collection && <Home data={collection}/> }
+		    { collection && <TodoHome data={collection}/> }
 		</div>
 	);
 }
