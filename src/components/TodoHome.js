@@ -6,15 +6,14 @@ import AddTodoModal from './AddTodoModal';
 export default function Home (props) {
 
 	const [showModal, setshowModal] = useState(false);
-	const [collection, setCollection] = useState(JSON.parse(window.localStorage.getItem("todos")));
-	const [error, setError] = useState(null);
+	const [collection, setCollection] = useState(props.data);
 	
 	const handleModal = (value) => {
 		setshowModal(value);
 	}
 
 	const handleDelete = (toodId) => {
-		collection.map((item, index) => {
+		collection.forEach((item, index) => {
 			if (item.id === toodId) {
 				collection.splice(index, 1);
 				window.localStorage.setItem("todos", JSON.stringify(collection));
@@ -22,16 +21,6 @@ export default function Home (props) {
 			}
 		})
 	}	
-
-	try {
-		if (window.localStorage.getItem("todos")) {
-			const collections = window.localStorage.getItem("todos");
-		} else {
-			window.localStorage.setItem("todos", "[]");
-		}
-	} catch (e) {
-		setError(e.message)
-	}
 
 	return (
 		<div className="collection">
@@ -42,7 +31,6 @@ export default function Home (props) {
 			<div className="division">
 				<div className="total-todos">Total todos: <span className="total">{collection.length}</span></div>
 			</div>
-			{ error && <div className="error">error</div> }
 			<section className="collection-cards-grid">
 				{
 					collection.map((item, index) => (
