@@ -7,7 +7,7 @@ function Todos() {
  	const collection = JSON.parse(window.localStorage.getItem("todos"));
  	
  	try {
- 		if (collection === null) {
+ 		if (!collection) {
 			window.localStorage.setItem("todos", "[]");
 		}
  	} catch (e) {
@@ -17,7 +17,7 @@ function Todos() {
 	return (
 		<div className="Home">
 			{ error && <div>{ error }</div> }
-		    { collection && <TodoHome data={collection || []}/> }
+		    { collection && <TodoHome data={collection}/> }
 		</div>
 	);
 }

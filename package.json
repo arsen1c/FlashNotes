@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "BROWSER='vivaldi-stable' react-scripts start",
-    "build": "BROWSER='vivaldi-stable' react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
