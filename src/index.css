@@ -16,9 +16,14 @@
 	--main-font-size: 1.1rem; 
 }
 
+* {
+	margin: 0;
+}
+/* Selection */
 ::selection {
 	background: var(--white-1);
 }
+/* Placeholder */
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: var(--white-2);
   opacity: 1; /* Firefox */
@@ -29,8 +34,14 @@
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: var(--white-2);
 }
-* {
-	margin: 0;
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+	width: 7px;
+}
+::-webkit-scrollbar-thumb{
+	background: var(--white-1);
+	border-radius: 5px;
 }
 
 body {
@@ -259,13 +270,15 @@ nav > .links {
 	justify-content: center;
 	transition: all 800ms ease;
 	z-index: 20;
+	max-height: 100%;
 }
 .modal-content {
 	background: var(--main-bg);
 	border-radius: 0.5rem;
-	overflow: hidden;	
 	min-width: 600px;
 	font-size: 1.2rem;
+	max-height: 100%;
+	overflow: auto;
 	box-shadow: rgba(0, 0, 0, 1) 0px 15px 50px;
 }
 .modal-header {
