@@ -11,7 +11,7 @@ export default function Navbar (props) {
 
 	return (
 		<nav>
-			<i className="fas fa-bars fa-1x bars" onClick={() => handleNavbar(showNavOptions)}></i>
+			<i className="fas fa-align-left bars" onClick={() => handleNavbar(showNavOptions)}></i>
 			<h1 className="logo">TODO</h1>
 			<div className="links" style={{ display: showNavOptions && "block" }}>
 				<Link to="/" onClick={() => handleNavbar(showNavOptions)} className="link">Home</Link>

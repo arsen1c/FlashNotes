@@ -280,6 +280,7 @@ nav > .links {
 	max-height: 100%;
 	overflow: auto;
 	box-shadow: rgba(0, 0, 0, 1) 0px 15px 50px;
+	margin-top: 1rem;
 }
 .modal-header {
 	background: var(--collection-card-bg);
@@ -341,14 +342,15 @@ label {
 }
 textarea {
 	max-width: 100%;
-	min-height: 200px;
-	max-height: 200px;
+	min-height: 300px;
+	max-height: 350px;
 	resize: vertical;
 }
 
 /* Todo Details Page */
 
 .details {
+	position: relative;
 	margin: 5rem auto;
 	max-width: 600px;
 	background: var(--collection-card-bg);
@@ -364,6 +366,15 @@ textarea {
 }
 .details-description {
 	margin-top: 1rem;
+}
+.details-content > .edit {
+	right: 2rem;
+	top: 15px;
+	position: absolute;
+	font-size: 1rem;
+	margin-top: 1rem;
+	text-align: right;
+	cursor: pointer;
 }
 
 /* MEDIA QUERIES */
@@ -415,7 +426,7 @@ textarea {
 		display: block;
 	}
 	.modal-content {
-		margin: 8rem auto;
+		margin: 2rem auto auto auto;
 		min-width: 100%;
 		font-size: 1rem;
 	}
@@ -461,5 +472,11 @@ textarea {
 	/*Next Button */
 	.next {
 		font-size: 2rem;
+	}
+
+	/* TextArea */
+	textarea {
+		min-height: 250px;
+		resize: vertical;
 	}
 }
