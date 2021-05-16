@@ -8,7 +8,6 @@ export default function EditModal(props) {
 	const handleSubmit = (e, title, description) => {
 		let todos = todoList;
 		e.preventDefault();
-		console.log(todos);
 		todos.forEach(todo => {
 			if (todo.id === props.id) {
 				todo["title"]=title;

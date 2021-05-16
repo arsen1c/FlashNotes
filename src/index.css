@@ -357,6 +357,10 @@ textarea {
 	border-radius: 1rem;
 	padding: 2rem;
 }
+.details-content img {
+	width: 100%;
+	height: auto;
+}
 .details-content > i {
 	margin-bottom: 0.5rem;
 	cursor: pointer;
