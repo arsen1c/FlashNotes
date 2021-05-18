@@ -211,7 +211,8 @@ nav > .links {
 	padding: 1rem;
 	border-radius: 1.2rem;
 	/* Give height to cards automatically */
-	align-self: start
+	align-self: start;
+	transition: transform 250ms ease;
 }
 .collection-card:hover {
 	transform: translateY(-5px);
@@ -268,9 +269,19 @@ nav > .links {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transition: all 800ms ease;
+	transition: all 800ms ease-out;
 	z-index: 20;
 	max-height: 100%;
+	animation: fade;
+	animation-duration: 400ms;
+}
+@keyframes fade{
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 .modal-content {
 	background: var(--main-bg);
@@ -459,12 +470,15 @@ textarea {
 		display: block;
 		text-align: center;
 		padding: 0.5rem 1rem;
+		transition: all 5s ease;
 	}
 	nav > .links {
 		display: none;
+		transition: all 5s ease;
 	}
 	nav .bars {
 		display: block;
+		transition: all 5s ease;
 	}
 	nav  > .links > .link {
 		margin-top: 1rem;
