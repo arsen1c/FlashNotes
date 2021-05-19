@@ -4,7 +4,7 @@ export default function EditModal(props) {
 	const [todoList, settodoList] = useState(JSON.parse(localStorage.getItem("todos")));
 	const [title, setTitle] = useState(props.title ? props.title : "");
 	const [description, setDescription] = useState(props.description ? props.description : "");
-	const [buttonText, setbuttonText] = useState("Submit");
+	const [buttonText, setbuttonText] = useState("Submit")
 
 	const handleSubmit = (e, title, description) => {
 		setbuttonText("Working...")

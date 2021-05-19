@@ -5,6 +5,7 @@ export default function AddTodoModal(props) {
 
 	const [title, setTitle] = useState(null);
 	const [description, setDescription] = useState(null);
+	const [buttonText, setbuttonText] = useState("Submit")
 	const history = useHistory();
 
 	const handleSubmit = (e) => {
@@ -13,16 +14,12 @@ export default function AddTodoModal(props) {
 			e.preventDefault();
 			e.target.querySelector('button').disabled = true;
 			let todos = JSON.parse(localStorage.getItem("todos") || "[]");
-			todos.push({ id: !todos.length > 0 ? 1 : todos[todos.length - 1].id + 1 , title, description, important,date: new Date().toLocaleDateString() })
+			todos.push({ id: !todos.length > 0 ? 1 : todos[todos.length - 1].id + 1 , title, description,date: new Date().toLocaleDateString() })
 			localStorage.setItem("todos", JSON.stringify(todos));
 			history.go('/collection');
 		} catch (e) {
 			console.log(e);
 		}
-	}
-
-	const handleImportant = (value) => {
-		setImportant(!value);
 	}
 
 	if (!props.show) {
