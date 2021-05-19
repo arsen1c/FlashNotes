@@ -61,6 +61,10 @@ pre {
 	overflow-x: auto;
 	margin: 1rem 0;
 }
+pre > code {
+	font-family: 'Courier New', monospace;
+	font-size: 0.8rem;
+}
 a {
 	color: var(--accent-color);
 }
@@ -214,6 +218,9 @@ nav > .links {
 	align-self: start;
 	transition: transform 250ms ease;
 }
+.collection-card.important {
+	border-left: 4px solid var(--accent-color);
+}
 .collection-card:hover {
 	transform: translateY(-5px);
 	transition: transform 200ms ease;
@@ -341,12 +348,16 @@ button.submit {
 	border: 2px solid var(--border-dark);
 	color: #fff;
 	outline: none;
+	transition: background 800ms ease;
 }
 button.submit:hover {
 	background: var(--accent-color);
-	transition: all 900ms ease;
+	transition: all 800ms ease;
 }
-label {
+label.check {
+	display: inline;
+}
+label.title {
 	margin-top: 1rem;
 	font-size: 1.3rem;
 	text-decoration:underline 3px solid var(--accent-color);
@@ -470,15 +481,12 @@ textarea {
 		display: block;
 		text-align: center;
 		padding: 0.5rem 1rem;
-		transition: all 5s ease;
 	}
 	nav > .links {
 		display: none;
-		transition: all 5s ease;
 	}
 	nav .bars {
 		display: block;
-		transition: all 5s ease;
 	}
 	nav  > .links > .link {
 		margin-top: 1rem;

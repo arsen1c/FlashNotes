@@ -4,19 +4,27 @@ export default function EditModal(props) {
 	const [todoList, settodoList] = useState(JSON.parse(localStorage.getItem("todos")));
 	const [title, setTitle] = useState(props.title ? props.title : "");
 	const [description, setDescription] = useState(props.description ? props.description : "");
+	const [buttonText, setbuttonText] = useState("Submit");
 
 	const handleSubmit = (e, title, description) => {
-		let todos = todoList;
-		e.preventDefault();
-		todos.forEach(todo => {
-			if (todo.id === props.id) {
-				todo["title"]=title;
-				todo["description"]=description;
-			}
-		})
-		settodoList(todos);
-		localStorage.setItem("todos", JSON.stringify(todoList));
-		props.onClose();
+		setbuttonText("Working...")
+		try {
+			let todos = todoList;
+			e.target.querySelector('button').disabled = true;
+			e.preventDefault();
+			todos.forEach(todo => {
+				if (todo.id === props.id) {
+					todo["title"]=title;
+					todo["description"]=description;
+				}
+			})
+			settodoList(todos);
+			localStorage.setItem("todos", JSON.stringify(todoList));
+			props.onClose();
+			setbuttonText("Submit")
+		} catch (e) {
+			console.log(e);
+		}
 	}
 
 	if (!props.show) {
@@ -36,7 +44,7 @@ export default function EditModal(props) {
 						<input name="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Your cool title..." required />
 						<label><h3>Todo description</h3></label>
 						<textarea name="description" value={description} className="textarea" onChange={(e) => setDescription(e.target.value)} placeholder="Your cool description..." />
-						<button className="submit">Submit</button>
+						<button className="submit">{buttonText}</button>
 					</form>
 				</div>
 			</div>

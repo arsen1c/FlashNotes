@@ -8,12 +8,21 @@ export default function AddTodoModal(props) {
 	const history = useHistory();
 
 	const handleSubmit = (e) => {
-		e.preventDefault();
-		// 
-		let todos = JSON.parse(localStorage.getItem("todos") || "[]");
-		todos.push({ id: !todos.length > 0 ? 1 : todos[todos.length - 1].id + 1 , title, description,date: new Date().toLocaleDateString() })
-		localStorage.setItem("todos", JSON.stringify(todos));
-		history.go('/collection');
+		setbuttonText("Adding...")
+		try {
+			e.preventDefault();
+			e.target.querySelector('button').disabled = true;
+			let todos = JSON.parse(localStorage.getItem("todos") || "[]");
+			todos.push({ id: !todos.length > 0 ? 1 : todos[todos.length - 1].id + 1 , title, description, important,date: new Date().toLocaleDateString() })
+			localStorage.setItem("todos", JSON.stringify(todos));
+			history.go('/collection');
+		} catch (e) {
+			console.log(e);
+		}
+	}
+
+	const handleImportant = (value) => {
+		setImportant(!value);
 	}
 
 	if (!props.show) {
@@ -33,7 +42,7 @@ export default function AddTodoModal(props) {
 						<input name="title" type="text" onChange={(e) => setTitle(e.target.value)} placeholder="Your cool title..." required />
 						<label><h3>Todo description</h3></label>
 						<textarea name="description" className="textarea" onChange={(e) => setDescription(e.target.value)} placeholder="Your cool description..." />
-						<button className="submit">Submit</button>
+						<button className="submit">{buttonText}</button>
 					</form>
 				</div>
 			</div>

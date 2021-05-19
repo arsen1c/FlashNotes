@@ -34,7 +34,7 @@ export default function Home (props) {
 			<section className="collection-cards-grid">
 				{
 					collection.map((item, index) => (
-						<div className="collection-card" key={item.id}>
+						<div className={`collection-card ${item.important && "important"}`} key={item.id}>
 							<Link className="link" to={`/todos/${item.id}`}>
 								<h3 className="card-title">
 									{ item.title }
