@@ -3,29 +3,34 @@ import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useHistory } from 'react-router-dom';
 import EditModal from './EditModal';
+import useFetch from '../hooks/useFetch';
 
 export default function TodoDetails() {
-	const todos = JSON.parse(window.localStorage.getItem("todos"));
+	const { data, error, isPending } = useFetch('http://localhost:4000/api/notes', JSON.parse(localStorage.getItem('jwt')));
 	const { id } = useParams();
-	const history = useHistory();
-	const [showModal, setshowModal] = useState(false);
-
-	let todo = todos.filter((item, index) => {
-		return item.id === parseInt(id);
+	console.log('TODO ID:', id);
+	// const history = useHistory();
+	// const [showModal, setshowModal] = useState(false);
+	// console.log(localStorage.getItem('jwt'));
+	// console.log(data);
+	let todo = data.data.notes.filter((item, index) => {
+		return index + 1 === parseInt(id);
 	})
+	console.log(todo);
 
-	const handleBackButton = () => {
-		history.push("/todos");
-	}
+	// const handleBackButton = () => {
+	// 	history.push("/todos");
+	// }
 
-	const handleModal = (value) => {
-		setshowModal(value);
-	}
+	// const handleModal = (value) => {
+	// 	setshowModal(value);
+	// }
 
 	return(
 		<div className="details">
-
-			{ todo.length > 0 && 
+			{ error && <div>{ error }</div> }
+			{ isPending && <div>Loading...</div> }
+			{/*{ todo.length > 0 && 
 				<div className="details-content">
 					<div onClick={() => handleModal(true)} className="edit"><i className="far fa-edit fa-2x link"></i></div>
 					<i className="fas fa-arrow-left fa-2x" onClick={handleBackButton}></i>			
@@ -36,7 +41,7 @@ export default function TodoDetails() {
 					</div>
 					<EditModal title={todo[0].title} description={todo[0].description} id={todo[0].id} onClose={() => handleModal(false)} show={showModal}/> 
 				</div>
-			}
+			}*/}
 		</div>
 	)
 }

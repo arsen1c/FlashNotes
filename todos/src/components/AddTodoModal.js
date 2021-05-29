@@ -13,10 +13,27 @@ export default function AddTodoModal(props) {
 		try {
 			e.preventDefault();
 			e.target.querySelector('button').disabled = true;
-			let todos = JSON.parse(localStorage.getItem("todos") || "[]");
-			todos.push({ id: !todos.length > 0 ? 1 : todos[todos.length - 1].id + 1 , title, description,date: new Date().toLocaleDateString() })
-			localStorage.setItem("todos", JSON.stringify(todos));
-			history.go('/collection');
+			
+			console.log({
+				title, description, date: new Date().toLocaleDateString()
+			})
+			fetch('http://localhost:4000/api/notes', {
+				method: 'POST',
+				body: JSON.stringify({ title, description, date: new Date().toLocaleDateString() }),
+				headers: { 
+					"Content-Type": "application/json",
+					"Authorization": `Bearer ${JSON.parse(localStorage.getItem('jwt'))}`
+				},
+				credentials: 'include',
+			}).then(res => {
+				return res.json();
+			}).then(data =>{
+				console.log(data);
+				history.go('/collection');
+			}).catch(err => {
+				console.log(err.message);
+			})
+
 		} catch (e) {
 			console.log(e);
 		}

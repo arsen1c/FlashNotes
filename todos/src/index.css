@@ -404,6 +404,13 @@ textarea {
 	cursor: pointer;
 }
 
+/*  Login Form  */
+.login-form {
+	width:  600px;
+	margin: auto;
+	margin-top: 2rem;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 920px) {

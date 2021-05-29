@@ -1,22 +1,18 @@
 import TodoHome from './TodoHome.js'
-import { useState } from 'react';
+// import { useState } from 'react';
+import useFetch from '../hooks/useFetch';
 
 function Todos() {
- 	const [error, setError] = useState(null);
+ 	// const collection = JSON.parse(window.localStorage.getItem("todos"));
+ 	// const [collection, setCollection] = useState(null);
 
- 	const collection = JSON.parse(window.localStorage.getItem("todos"));
- 	try {
- 		if (!collection) {
-			window.localStorage.setItem("todos", "[]");
-		}
- 	} catch (e) {
- 		setError(e.message);
- 	}
-
+ 	const { data, error, isPending } = useFetch('http://localhost:4000/api/notes', JSON.parse(localStorage.getItem('jwt')));
+ 	
 	return (
 		<div className="Home">
 			{ error && <div>{ error }</div> }
-		    { collection && <TodoHome data={!collection ? [] : collection}/> }
+			{ isPending && <div>Loading...</div> }
+		    { data && <TodoHome data={data.data.notes}/> }
 		</div>
 	);
 }
