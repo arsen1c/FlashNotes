@@ -13,14 +13,14 @@ const errorHandler = (err, req, res, next) => {
 		statusCode = 422;
 		data = {
 			message: err.message
-		}
+		};
 	};
 
 	if (err instanceof CustomErrorHandler) {
 		statusCode = err.status;
 		data= {
 			message: err.message
-		}
+		};
 	};
 
 	return res.status(statusCode).json(data);

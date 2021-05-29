@@ -3,6 +3,7 @@ import { User } from '../../models';
 import bcrypt from 'bcrypt';
 import CustomErrorHandler from '../../services/CustomErrorHandler';
 import {JwtService} from '../../services';
+// import { REFRESH_SECRET } from '../../config';
 
 const registerController = {
 	// POST to Register
@@ -46,12 +47,12 @@ const registerController = {
 		try {
 			const result = await user.save();
 			console.log('Success:', result);
-			accessToken = JwtService.sign({ _id: result.id, username: result.username });
+			// accessToken = JwtService.sign({ _id: result.id, username: result.username });
 		} catch (err) {
 			return next(err);
 		}
-
-		res.json({ 'access_token': accessToken });
+		res.json({message: 'User Saved!'});
+		// res.json({ 'access_token': accessToken });
 	}
 }
 

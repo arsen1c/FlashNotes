@@ -4,11 +4,13 @@ const auth = async (req, res, next) => {
 	// Get authorization header
 	let authHeader = req.headers.authorization;
 
-	if (!authHeader) {
-		return next(CustomErrorHandler.unAuthorized());
-	};
 
-	const token = authHeader.split(' ')[1];
+	// Get the token from query or header
+	const token =  authHeader.split(' ')[1];
+	console.log("Token:",token);
+	if (!token) {
+		return next(CustomErrorHandler.unAuthorized());
+	}
 
 	try {
 		// Verify JWT
