@@ -3,22 +3,33 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import AddTodoModal from './AddTodoModal';
 
-export default function Home (props) {
 
+export default function Home (props) {
 	const [showModal, setshowModal] = useState(false);
 	const [collection, setCollection] = useState(props.data);
-	
+	// const [deleteMessage, setdeleteMessage] = useState('');	
 	const handleModal = (value) => {
 		setshowModal(value);
 	}
 
 	const handleDelete = (toodId) => {
-		collection.forEach((item, index) => {
-			if (item.id === toodId) {
-				collection.splice(index, 1);
-				window.localStorage.setItem("todos", JSON.stringify(collection));
-				setCollection([...collection])
+		console.log('Delete Item Number:', toodId);
+		fetch(`http://localhost:4000/api/notes/${toodId}`, {
+			method: 'DELETE',
+			headers: {
+				"Authorization": `Bearer ${JSON.parse(localStorage.getItem('jwt'))}`
 			}
+		}).then(res => {
+			if (!res.ok) {
+				return new Error('Error Deleting');
+			}
+			return res.json();
+		}).then(data => {
+			console.log(data);
+			// setdeleteMessage('Deleted Succesfully!');
+			setCollection([...data.notes])
+		}).catch(err => {
+			console.log(err);
 		})
 	}	
 
@@ -28,14 +39,15 @@ export default function Home (props) {
 			<div className="addCollection link" onClick={() => handleModal(true)}>
 				+
 			</div>
+			{/*<div>{deleteMessage}</div>*/}
 			<div className="division">
 				<div className="total-todos">Total todos: <span className="total">{collection.length}</span></div>
 			</div>
 			<section className="collection-cards-grid">
 				{
 					collection.map((item, index) => (
-						<div className={`collection-card ${item.important && "important"}`} key={index+1}>
-							<Link className="link" to={`/todos/${index+1}`}>
+						<div className={`collection-card ${item.important && "important"}`} key={item.id}>
+							<Link className="link" to={`/todos/${item.id}`}>
 								<h3 className="card-title">
 									{ item.title }
 								</h3>
@@ -62,5 +74,5 @@ export default function Home (props) {
 			}
 			<AddTodoModal onClose={() => handleModal(false)} show={showModal}/>
 		</div>
-	)
+	) 
 }

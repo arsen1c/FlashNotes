@@ -1,9 +1,7 @@
 export default function Header (props) {
-
 	function getHour() {
 		return new Date().getHours();
 	}
-
 	const currentHour = getHour();
 
 	return (

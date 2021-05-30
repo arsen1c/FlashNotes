@@ -16,7 +16,7 @@ const loginController = {
 		// Check for Validation Errors in Joi
 		const { error } = loginSchema.validate(req.body);
 		if (error) {
-			return next(err);
+			return next(error);
 		};
 
 		try {

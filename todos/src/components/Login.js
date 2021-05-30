@@ -1,17 +1,15 @@
 import { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const Login = (porps) => {
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [errorText, setErrorText] = useState('');
 	const history = useHistory();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('Email:', email);
-		console.log('Password:', password);
-
 		// Request to server
 		fetch("http://localhost:4000/api/login", {
 			method: 'POST',
@@ -20,8 +18,14 @@ const Login = (porps) => {
 			body: JSON.stringify({ email, password })
 		}).then(res => {
 			console.log(res.ok);
+			if (res.status === 401){ 
+				console.log(res)
+				setErrorText('Invalid Credentials');
+				throw new Error('Invalid Credentials')
+			}
 			return res.json();
 		}).then(data => {
+			console.log(data);
 			const jwt = document.cookie.split(';').filter(value => value.trim().startsWith('jwt='))[0].split('=')[1];
 			window.localStorage.setItem("jwt", JSON.stringify(jwt));
 			history.push('/me');
@@ -32,11 +36,13 @@ const Login = (porps) => {
 
 	return (
 		<form className="login-form" onSubmit={(e) => handleSubmit(e)}>
+			<div>{errorText}</div>
 			<label>Email</label>
 			<input name="email" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required/>
 			<label>Password</label>
 			<input name="password" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
 			<button className="submit">Submit</button>
+			<div>Need an account? <Link to="/register">Register</Link></div>
 		</form>
 	);
 };

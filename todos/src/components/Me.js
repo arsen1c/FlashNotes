@@ -2,7 +2,6 @@ import useFetch from '../hooks/useFetch';
 import { Redirect } from 'react-router-dom';
 const Me = (props) => {
 	const isAuthenticated = localStorage.getItem('jwt');
-	
 	const { data, error, isPending } = useFetch('http://localhost:4000/api/me', JSON.parse(localStorage.getItem('jwt')));
 
 	return isAuthenticated ? (

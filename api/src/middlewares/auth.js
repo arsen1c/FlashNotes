@@ -7,7 +7,7 @@ const auth = async (req, res, next) => {
 
 	// Get the token from query or header
 	const token =  authHeader.split(' ')[1];
-	console.log("Token:",token);
+	// console.log("Token:",token);
 	if (!token) {
 		return next(CustomErrorHandler.unAuthorized());
 	}
