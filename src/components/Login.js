@@ -23,8 +23,11 @@ const Login = (porps) => {
 				setErrorText('Invalid Credentials');
 				throw new Error('Invalid Credentials')
 			}
-			res.json().then(data => console.log(data));
-			return res.json();
+			return res.json().then(data => {
+				console.log(data);
+				return data;
+			});
+			// return res.json();
 		}).then(data => {
 			// console.log(data);
 			const jwt = document.cookie.split(';').filter(value => value.trim().startsWith('jwt='))[0].split('=')[1];
@@ -32,6 +35,7 @@ const Login = (porps) => {
 			history.push('/me');
 		}).catch(err => {
 			console.log(err.message);
+			console.log(err);
 			console.log('Error Occurred!');
 		})
 	};
