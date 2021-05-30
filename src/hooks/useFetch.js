@@ -9,7 +9,8 @@ const useFetch = (url, jwt) => {
 		fetch(url, {
 			headers: {
 				"Authorization": `Bearer ${jwt}`
-			}
+			},
+			credentials: 'include'
 		})
 			.then(res => {
 				// Check for errors in response
