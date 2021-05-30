@@ -24,11 +24,12 @@ const Login = (porps) => {
 				throw new Error('Invalid Credentials')
 			}
 			return res.json().then(data => {
-				console.log(data);
+				
 				return data;
 			});
 			// return res.json();
 		}).then(data => {
+			console.log('From 2nd Then:', data);
 			// console.log(data);
 			const jwt = document.cookie.split(';').filter(value => value.trim().startsWith('jwt='))[0].split('=')[1];
 			window.localStorage.setItem("jwt", JSON.stringify(jwt));
