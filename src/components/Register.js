@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
 
 const Register = (porps) => {

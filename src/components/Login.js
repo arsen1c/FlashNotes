@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
 
 const Login = (porps) => {
@@ -25,7 +25,7 @@ const Login = (porps) => {
 			}
 			return res.json();
 		}).then(data => {
-			console.log(data);
+			// console.log(data);
 			const jwt = document.cookie.split(';').filter(value => value.trim().startsWith('jwt='))[0].split('=')[1];
 			window.localStorage.setItem("jwt", JSON.stringify(jwt));
 			history.push('/me');

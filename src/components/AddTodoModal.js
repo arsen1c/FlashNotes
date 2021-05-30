@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 
@@ -46,7 +46,7 @@ export default function AddTodoModal(props) {
 		<div className="modal">
 			{ error && <div>{ error }</div> }
 			{ isPending &&  <div>Loading...</div> }
-			{ data && <>
+			{ data && (
 				<div className="modal-content">
 					<div className="modal-header">
 						<h2>📑 Add new todo</h2>
@@ -62,7 +62,7 @@ export default function AddTodoModal(props) {
 						</form>
 					</div>
 				</div>
-			</> }
+			)}
 		</div>
 	)
 }

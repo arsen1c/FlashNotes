@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
-import Note from './Note'; 
+import Note from './Note';
+import React from 'react'; 
 
 const TodoDetails = (props) => {
 	const { id } = useParams();
@@ -9,7 +10,7 @@ const TodoDetails = (props) => {
 		<div>
 			{ error && <div>{ error }</div> }
 			{ isPending && <div>Loading...</div> }
-			{ data && <Note notes={data.data.notes} id={parseInt(id)}/> }
+			{ data && <Note notes={data.data.notes} id={parseInt(id, 10)}/> }
 		</div>
 	)
 }

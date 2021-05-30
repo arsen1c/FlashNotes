@@ -1,3 +1,4 @@
+import React from 'react';
 import useFetch from '../hooks/useFetch';
 import { Redirect } from 'react-router-dom';
 const Me = (props) => {
@@ -9,11 +10,13 @@ const Me = (props) => {
 			<h1>User Details</h1>
 			{ error && <div>{ error }</div> }
 			{isPending && <p>Loading...</p>}	
-			{ data && <>
-				<h1>Username: {data.user.username}</h1>
+			{ data && (
+				<div>
+					<h1>Username: {data.user.username}</h1>
 				<p>Email: {data.user.email}</p>
 				<p>ID: {data.user._id}</p>
-				</> 
+				</div>
+			) 
 			}
 		</div>
 	) : (

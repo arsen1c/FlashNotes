@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useHistory } from 'react-router-dom';
 import EditModal from './EditModal';
+import React from 'react';
 
 const Note = ({ notes, id }) => {
 	const history = useHistory();
