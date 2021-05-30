@@ -14,7 +14,7 @@ export default function Home (props) {
 
 	const handleDelete = (toodId) => {
 		console.log('Delete Item Number:', toodId);
-		fetch(`http://localhost:4000/api/notes/${toodId}`, {
+		fetch(`https://react-notes-api.vector2912.repl.co/api/notes/${toodId}`, {
 			method: 'DELETE',
 			headers: {
 				"Authorization": `Bearer ${JSON.parse(localStorage.getItem('jwt'))}`

@@ -5,7 +5,7 @@ import React from 'react';
 
 const TodoDetails = (props) => {
 	const { id } = useParams();
-	const { data, error, isPending } = useFetch('http://localhost:4000/api/notes', JSON.parse(localStorage.getItem('jwt')));
+	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/notes', JSON.parse(localStorage.getItem('jwt')));
 	return(
 		<div>
 			{ error && <div>{ error }</div> }
