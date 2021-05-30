@@ -23,6 +23,7 @@ const Login = (porps) => {
 				setErrorText('Invalid Credentials');
 				throw new Error('Invalid Credentials')
 			}
+			res.json().then(data => console.log(data));
 			return res.json();
 		}).then(data => {
 			// console.log(data);
