@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 export default function EditModal(props) {
 	const [todoList, settodoList] = useState(JSON.parse(localStorage.getItem("todos")));
 	const [title, setTitle] = useState(props.title ? props.title : "");

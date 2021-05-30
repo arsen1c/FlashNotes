@@ -8,7 +8,7 @@ export default function AddTodoModal(props) {
 	const [buttonText, setbuttonText] = useState("Submit")
 	const history = useHistory();
 
-	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/notes', JSON.parse(localStorage.getItem('jwt')));
+	const { data, error, isPending } = useFetch('https://react-notes-api.herokuapp.com/api/notes', JSON.parse(localStorage.getItem('jwt')));
  	
 	const handleSubmit = (e) => {
 		setbuttonText("Adding...")
@@ -16,7 +16,7 @@ export default function AddTodoModal(props) {
 			e.preventDefault();
 			e.target.querySelector('button').disabled = true;
 			const id = !data.data.notes.length > 0 ? 1 : data.data.notes[data.data.notes.length - 1].id + 1;
-			fetch('https://react-notes-api.vector2912.repl.co/api/notes', {
+			fetch('https://react-notes-api.herokuapp.com/api/notes', {
 				method: 'POST',
 				body: JSON.stringify({ id, title, description, date: new Date().toLocaleDateString() }),
 				headers: { 
