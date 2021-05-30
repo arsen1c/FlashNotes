@@ -5,7 +5,7 @@ import React from 'react';
 
 function Todos() {
 	const isAuthenticated = localStorage.getItem('jwt');
- 	const { data, error, isPending } = useFetch('https://react-notes-api.herokuapp.com/api/notes', JSON.parse(localStorage.getItem('jwt')));
+ 	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/notes', JSON.parse(localStorage.getItem('jwt')));
 	return isAuthenticated ? (
 		<div className="Home">
 			{ error && <div>{ error }</div> }

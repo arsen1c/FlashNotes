@@ -11,7 +11,7 @@ const Login = (porps) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		// Request to server
-		fetch("https://react-notes-api.herokuapp.com/api/login", {
+		fetch("https://react-notes-api.vector2912.repl.co/api/login", {
 			method: 'POST',
 			headers: { "Content-Type": "application/json" },
 			credentials: 'include',
