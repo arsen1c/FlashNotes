@@ -1,24 +1,20 @@
 import TodoHome from './TodoHome.js'
-import { useState } from 'react';
+import useFetch from '../hooks/useFetch';
+import { Redirect } from 'react-router-dom';
+import React from 'react';
 
 function Todos() {
- 	const [error, setError] = useState(null);
-
- 	const collection = JSON.parse(window.localStorage.getItem("todos"));
- 	try {
- 		if (!collection) {
-			window.localStorage.setItem("todos", "[]");
-		}
- 	} catch (e) {
- 		setError(e.message);
- 	}
-
-	return (
+	const isAuthenticated = localStorage.getItem('jwt');
+ 	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/notes', JSON.parse(localStorage.getItem('jwt')));
+	return isAuthenticated ? (
 		<div className="Home">
 			{ error && <div>{ error }</div> }
-		    { collection && <TodoHome data={!collection ? [] : collection}/> }
+			{ isPending && <div>Loading...</div> }
+		    { data && <TodoHome data={data.data.notes}/> }
 		</div>
-	);
+	) : (
+		<Redirect to={{ pathname: '/login' }} />
+	)
 }
 
 export default Todos;

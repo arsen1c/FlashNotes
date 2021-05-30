@@ -1,24 +1,35 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 import AddTodoModal from './AddTodoModal';
 
-export default function Home (props) {
 
+export default function Home (props) {
 	const [showModal, setshowModal] = useState(false);
 	const [collection, setCollection] = useState(props.data);
-	
+	// const [deleteMessage, setdeleteMessage] = useState('');	
 	const handleModal = (value) => {
 		setshowModal(value);
 	}
 
 	const handleDelete = (toodId) => {
-		collection.forEach((item, index) => {
-			if (item.id === toodId) {
-				collection.splice(index, 1);
-				window.localStorage.setItem("todos", JSON.stringify(collection));
-				setCollection([...collection])
+		console.log('Delete Item Number:', toodId);
+		fetch(`https://react-notes-api.vector2912.repl.co/api/notes/${toodId}`, {
+			method: 'DELETE',
+			headers: {
+				"Authorization": `Bearer ${JSON.parse(localStorage.getItem('jwt'))}`
 			}
+		}).then(res => {
+			if (!res.ok) {
+				return new Error('Error Deleting');
+			}
+			return res.json();
+		}).then(data => {
+			console.log(data);
+			// setdeleteMessage('Deleted Succesfully!');
+			setCollection([...data.notes])
+		}).catch(err => {
+			console.log(err);
 		})
 	}	
 
@@ -28,6 +39,7 @@ export default function Home (props) {
 			<div className="addCollection link" onClick={() => handleModal(true)}>
 				+
 			</div>
+			{/*<div>{deleteMessage}</div>*/}
 			<div className="division">
 				<div className="total-todos">Total todos: <span className="total">{collection.length}</span></div>
 			</div>
@@ -62,5 +74,5 @@ export default function Home (props) {
 			}
 			<AddTodoModal onClose={() => handleModal(false)} show={showModal}/>
 		</div>
-	)
+	) 
 }
