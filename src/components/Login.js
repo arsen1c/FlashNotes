@@ -31,6 +31,7 @@ const Login = (porps) => {
 			window.localStorage.setItem("jwt", JSON.stringify(jwt));
 			history.push('/me');
 		}).catch(err => {
+			console.log(err.message);
 			console.log('Error Occurred!');
 		})
 	};
