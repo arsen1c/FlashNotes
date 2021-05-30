@@ -31,7 +31,8 @@ const Login = (porps) => {
 		}).then(data => {
 			console.log('From 2nd Then:', );
 			// console.log(data);
-			const jwt = data.accessToken.split(';').filter(value => value.trim().startsWith('jwt='))[0].split('=')[1];
+			// const jwt = data.accessToken.split(';').filter(value => value.trim().startsWith('jwt='))[0].split('=')[1];
+			const jwt = data.accessToken;
 			window.localStorage.setItem("jwt", JSON.stringify(jwt));
 			history.push('/me');
 		}).catch(err => {
