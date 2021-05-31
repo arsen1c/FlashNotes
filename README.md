@@ -1,8 +1,10 @@
-# Todo App using Reactjs
+# Note Taking App using Reactjs
 
-A todo app built using ReactJS which stores the todos locally on the localStorage of your browser and has markdown support.
+A note taking app built using ReactJS. This app also has an option for markdown to organize you todos.
 
 **Design Inspiration: [Dribble](https://dribbble.com/shots/15154577-Collections)**
+
+**Spinners: [Dev.to](https://dev.to/afif/another-100-css-loaders-for-your-next-project-352l)**
 
 # Run locally
 ```code
@@ -12,11 +14,10 @@ $ npm install
 $ npm start
 ```
 # Note
-* Remove `BROWSER='vivaldi-stable'` from `start` and `build` scripts in [package.json](https://github.com/arsen1c/React-Todo/blob/master/package.json) file if you are not using vivaldi browser on a linux machine
 * Missing features will be added later
 
 # Screenshots
 
-![image](https://user-images.githubusercontent.com/46086050/117820920-a779b600-b288-11eb-8875-a81566760dfd.png)
-![image](https://user-images.githubusercontent.com/46086050/117820999-bfe9d080-b288-11eb-89f2-b9bbd709c44e.png)
-![image](https://user-images.githubusercontent.com/46086050/118408074-6b3bc080-b6a1-11eb-8374-0856d684bbea.png)
+![image](https://user-images.githubusercontent.com/46086050/120204492-816f8200-c246-11eb-897d-2b448c36c187.png)
+![image](https://user-images.githubusercontent.com/46086050/120204583-9ba96000-c246-11eb-90de-cdca551acc9d.png)
+![image](https://user-images.githubusercontent.com/46086050/120204253-39505f80-c246-11eb-832e-c4d619884435.png)
