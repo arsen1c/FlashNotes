@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import { SpinnerSmall } from './Spinner';
 
-export default function EditModal(props) {
+export default function EditNote(props) {
 	const [todoList, settodoList] = useState(JSON.parse(localStorage.getItem("todos")));
 	const [title, setTitle] = useState(props.title ? props.title : "");
 	const [description, setDescription] = useState(props.description ? props.description : "");
 	const [buttonText, setbuttonText] = useState("Submit")
 
 	const handleSubmit = (e, title, description) => {
-		setbuttonText("Working...")
+		setbuttonText(<SpinnerSmall />)
 		try {
 			let todos = todoList;
 			e.target.querySelector('button').disabled = true;

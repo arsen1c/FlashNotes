@@ -1,6 +1,6 @@
 import React from 'react';
-import Todos from './Todos.js';
-import TodoDetails from './TodoDetails';
+import Notes from './Notes.js';
+import NoteDetails from './NoteDetails';
 import Navbar from './Navbar.jsx';
 import Login from './Login.js';
 import Register from './Register.js';
@@ -17,11 +17,11 @@ function App() {
 	        	<Route exact path="/">
 	        		<Home />
 	        	</Route>
-	        	<Route exact path="/todos">
-	        		<Todos />
+	        	<Route exact path="/notes">
+	        		<Notes />
 	        	</Route>
-	        	<Route path="/todos/:id">
-	        		<TodoDetails />
+	        	<Route path="/notes/:id">
+	        		<NoteDetails />
 	        	</Route>
 	        	<Route path="/login">
 	        		<Login />

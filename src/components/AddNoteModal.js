@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
+import { SpinnerSmall } from './Spinner';
 
 export default function AddTodoModal(props) {
 	const [title, setTitle] = useState(null);
@@ -11,7 +12,7 @@ export default function AddTodoModal(props) {
 	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/notes', JSON.parse(localStorage.getItem('jwt')));
  	
 	const handleSubmit = (e) => {
-		setbuttonText("Adding...")
+		setbuttonText(<SpinnerSmall />)
 		try {
 			e.preventDefault();
 			e.target.querySelector('button').disabled = true;
@@ -28,7 +29,7 @@ export default function AddTodoModal(props) {
 				return res.json();
 			}).then(data =>{
 				console.log(data);
-				history.go('/collection');
+				history.go('/notes');
 			}).catch(err => {
 				console.log(err.message);
 			})

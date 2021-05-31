@@ -13,10 +13,10 @@ export default function Navbar (props) {
 	return (
 		<nav>
 			<i className="fas fa-align-left bars" onClick={() => handleNavbar(showNavOptions)}></i>
-			<h1 className="logo">TODO</h1>
+			<h1 className="logo">FlashNotes</h1>
 			<div className="links" style={{ display: showNavOptions && "block" }}>
 				<Link to="/" onClick={() => handleNavbar(showNavOptions)} className="link">Home</Link>
-				<Link to="/todos" onClick={() => handleNavbar(showNavOptions)} className="link">Todos</Link>
+				<Link to="/notes" onClick={() => handleNavbar(showNavOptions)} className="link">Notes</Link>
 				<a href="https://github.com/arsen1c/React-Todo" target="_blank" rel="noopener noreferrer"><i className="fab fa-github github "></i></a>
 			</div>
 		</nav>
