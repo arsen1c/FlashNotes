@@ -1,4 +1,7 @@
 # Note Taking App using Reactjs
+![ReactJS](https://img.shields.io/badge/-ReactJS-eee?style=for-the-badge&logo=react)
+![MongoDB](https://img.shields.io/badge/-Mongodb-37b86a?style=for-the-badge&logo=mongodb)
+![Javascript](https://img.shields.io/badge/-Javascript-000?style=for-the-badge&logo=javascript)
 
 A note taking app built using ReactJS. This app also has an option for markdown to organize you todos.
 
