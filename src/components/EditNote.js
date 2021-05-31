@@ -27,7 +27,7 @@ export default function EditNote(props) {
 				body: JSON.stringify({ title, description })
 			}).then(res => {
 				return res.json().then(data => {
-					console.log(data);
+					// console.log(data);
 					return data;
 				})
 			}).then(data => {
