@@ -12,7 +12,7 @@ function Notes() {
 		<div className="Home">
 			{ error && <div>{ error }</div> }
 			{ isPending && <Spinner></Spinner> }
-		    { data && <NotesHome data={data.data.notes}/> }
+		    { data && <NotesHome data={data.data.notes} username={data.data.username}/> }
 		</div>
 	) : (
 		<Redirect to={{ pathname: '/login' }} />

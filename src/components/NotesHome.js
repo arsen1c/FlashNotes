@@ -6,7 +6,7 @@ import AddNoteModal from './AddNoteModal';
 export default function Home (props) {
 	const [showModal, setshowModal] = useState(false);
 	const [collection, setCollection] = useState(props.data);
-	// const [deleteMessage, setdeleteMessage] = useState('');	
+	// const [deleteMessage, setdeleteMessage] = useState('');
 	const handleModal = (value) => {
 		setshowModal(value);
 	}
@@ -38,7 +38,7 @@ export default function Home (props) {
 
 	return (
 		<div className="collection">
-			<Header heading="Notes" />
+			<Header heading="Notes" username={props.username}/>
 			<div className="addCollection link" onClick={() => handleModal(true)}>
 				+
 			</div>
