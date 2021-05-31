@@ -6,6 +6,8 @@ A note taking app built using ReactJS. This app also has an option for markdown 
 
 **Spinners: [Dev.to](https://dev.to/afif/another-100-css-loaders-for-your-next-project-352l)**
 
+**Setup the API: [API Repo](https://github.com/arsen1c/react-notes-api)**
+
 # Run locally
 ```code
 $ git clone https://github.com/arsen1c/React-Todo.git
