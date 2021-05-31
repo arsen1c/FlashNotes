@@ -59,7 +59,7 @@ const Register = (porps) => {
 				<label>Confirm Password</label>
 				<input name="repeat_password" type="password" placeholder="Confirm Password" onChange={(e) => setconfirmPassword(e.target.value)} required />
 				<button className="submit">Submit</button>
-				<div>Already have an account? <Link to="/login">Login</Link></div>
+				<div className="login-register">Already have an account? <Link to="/login">Login</Link></div>
 			</form>
 		</div>
 	);

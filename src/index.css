@@ -11,7 +11,7 @@
 	--white-1: #64646b;
 	--white-2: #7c7c82;
 	--white-3: #9e9ea3;
-	
+	--red:  #eb6057;
 	/* Font Sizes */
 	--main-font-size: 1.1rem; 
 }
@@ -409,16 +409,45 @@ textarea {
 
 /*  Login Form  */
 .login-form {
-	width:  600px;
-	margin: auto;
-	margin-top: 2rem;
+	width:  500px;
+	margin: 10rem auto;
+	/*margin-top: 10rem;*/
+}
+.login-form label {
+	margin-top:  1rem;
+	margin-bottom: -0.6rem;
+}
+.login-form .login-register {
+	margin-top: 1rem;
+	font-size: 0.9em;
+}
+.login-form .error {
+	margin-top: 0.5rem;
+	color: var(--red);
 }
 
+/* Use Details  */
+.user-info {
+	margin: 10rem auto;
+	width: 500px;
+	background: var(--collection-card-bg);
+	border-radius: 1rem;
+	padding: 1rem;
+}
+.user-info > header {
+	text-align: center;
+}
 /* MEDIA QUERIES */
 
-@media (max-width: 920px) {
+@media (max-width: 960px) {
 	.collection {
 		margin: 0 1rem;
+	}
+	nav {
+		padding: 0.5rem 1rem;
+	}
+	.root {
+		font-size: 1.2rem;
 	}
 }
 
@@ -428,11 +457,18 @@ textarea {
 		font-size: 1rem;
 		padding: 0;
 	}
+	.header {
+		font-size: .9rem;
+	}
+	.total-notes {
+		text-align: left;
+		margin-left: .5rem;
+	}
 	.Home {
 		max-width: 100%;
 	}
 	.collection {
-		margin: 0 1rem;
+		margin: 0 1rem 7rem 1rem;
 		transition: all 300ms ease;
 	}
 	.addCollection {
@@ -515,6 +551,33 @@ textarea {
 	textarea {
 		min-height: 250px;
 		resize: vertical;
+	}
+
+	/* Login-Form  */
+	.login-form {
+		width: 100%;
+		max-width: 400px;
+		min-width: 300px;
+		overflow: hidden;
+	}
+
+	/* User_Info Page  */
+	.user-info {
+		max-width: 400px;	
+	}
+}
+@media (max-width: 420px) {
+	.user-info {
+		max-width: 300px;
+	}
+
+	/* Login  */
+	.login-form {
+		max-width: 300px;
+	}
+
+	.root {
+		font-size: 0.9rem;
 	}
 }
 
