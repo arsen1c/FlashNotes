@@ -23,6 +23,6 @@ $ npm start
 
 # Screenshots
 
-![image](https://user-images.githubusercontent.com/46086050/120204492-816f8200-c246-11eb-897d-2b448c36c187.png)
-![image](https://user-images.githubusercontent.com/46086050/120204583-9ba96000-c246-11eb-90de-cdca551acc9d.png)
+![image](https://user-images.githubusercontent.com/46086050/120311562-44ae9400-c2f5-11eb-83c0-4c52c45b5864.png)
+![image](https://user-images.githubusercontent.com/46086050/120311602-509a5600-c2f5-11eb-992b-4c36f3560332.png)
 ![image](https://user-images.githubusercontent.com/46086050/120204253-39505f80-c246-11eb-832e-c4d619884435.png)
