@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
+import { SpinnerSmall } from './Spinner';
 
 const Register = (porps) => {
 	const [username, setUsername] = useState('');
@@ -7,23 +8,23 @@ const Register = (porps) => {
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setconfirmPassword] = useState('');
 	const [errorText, setErrorText] = useState('');
+	const [buttonText, setbuttonText] = useState('Submit');
 	const history = useHistory();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('Email:', email);
-		console.log('Password:', password);
+		setbuttonText(<SpinnerSmall />);
 
 		// Request to server
-		fetch("https://react-notes-api.vector2912.repl.co/api/register", {
+		fetch("http://localhost:4000/api/register", {
 			method: 'POST',
 			headers: { "Content-Type": "application/json" },
 			credentials: 'include',
-			body: JSON.stringify({ username, email, password, repeat_password: confirmPassword })
+			body: JSON.stringify({ username, email, password, repeat_password: confirmPassword, date: new Date().getTime() })
 		}).then(res => {
-			console.log(res.ok);
+			// console.log(res.ok);
 			if (res.status === 401){ 
-				console.log(res)
+				// console.log(res)
 				res.json().then((data) => setErrorText(data.message));
 				throw new Error('Error Register')
 			}
@@ -39,17 +40,19 @@ const Register = (porps) => {
 			}
 			return res.json();
 		}).then(data => {
-			console.log('Data:', data);
+			// console.log('Data:', data);
+			setbuttonText('Register');
 			history.push('/login');
 		}).catch(err => {
-			console.log('Error Occurred!');
+			setbuttonText('Register');
+			// console.log('Error Occurred!');
 		})
 	};
 
 	return (
-		<div>
-			<form className="login-form" onSubmit={(e) => handleSubmit(e)}>
-				<div>{errorText}</div>
+		<div className="login-form">
+			<h1>Register</h1>
+			<form  onSubmit={(e) => handleSubmit(e)}>
 				<label>Username</label>
 				<input name="username" type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required/>
 				<label>Email</label>
@@ -58,7 +61,8 @@ const Register = (porps) => {
 				<input name="password" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
 				<label>Confirm Password</label>
 				<input name="repeat_password" type="password" placeholder="Confirm Password" onChange={(e) => setconfirmPassword(e.target.value)} required />
-				<button className="submit">Submit</button>
+				{ errorText && <div className="error">✕ {errorText}</div> }
+				<button className="submit">{buttonText}</button>
 				<div className="login-register">Already have an account? <Link to="/login">Login</Link></div>
 			</form>
 		</div>

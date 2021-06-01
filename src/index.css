@@ -293,7 +293,7 @@ nav > .links {
 .modal-content {
 	background: var(--main-bg);
 	border-radius: 0.5rem;
-	min-width: 600px;
+	min-width: 800px;
 	font-size: 1.2rem;
 	max-height: 100%;
 	overflow: auto;
@@ -367,9 +367,13 @@ label.title {
 }
 textarea {
 	max-width: 100%;
-	min-height: 300px;
+	min-height: 400px;
 	max-height: 350px;
 	resize: vertical;
+}
+.modal-body form label {
+	margin-top:  1rem;
+	margin-bottom: -0.6rem;
 }
 
 /* Todo Details Page */
@@ -410,8 +414,12 @@ textarea {
 /*  Login Form  */
 .login-form {
 	width:  500px;
-	margin: 10rem auto;
+	margin: 5rem auto;
 	/*margin-top: 10rem;*/
+}
+.login-form > h1 {
+	text-align: center;
+	margin-bottom: 1rem;
 }
 .login-form label {
 	margin-top:  1rem;
@@ -437,6 +445,12 @@ textarea {
 .user-info > header {
 	text-align: center;
 }
+.user-info > .join-date {
+	margin-top: 2rem;
+	text-align: center;
+	font-size: 0.8em;
+	color: var(--white-1);
+}
 /* MEDIA QUERIES */
 
 @media (max-width: 960px) {
@@ -448,6 +462,9 @@ textarea {
 	}
 	.root {
 		font-size: 1.2rem;
+	}
+	.modal-content {
+		min-width: 650px;
 	}
 }
 
@@ -549,7 +566,7 @@ textarea {
 
 	/* TextArea */
 	textarea {
-		min-height: 250px;
+		min-height: 400px;
 		resize: vertical;
 	}
 
@@ -559,7 +576,18 @@ textarea {
 		max-width: 400px;
 		min-width: 300px;
 		overflow: hidden;
+		font-size: 1rem;
 	}
+
+	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	  font-size: 1rem;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	  color: var(--white-2);
+	}
+	::-ms-input-placeholder { /* Microsoft Edge */
+	  color: var(--white-2);
+}
 
 	/* User_Info Page  */
 	.user-info {
