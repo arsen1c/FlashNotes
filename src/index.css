@@ -606,10 +606,20 @@ form .learn-more a {
 	.user-info {
 		max-width: 300px;
 	}
+	.modal-body {
+		font-size: 0.8em;	
+	}
 	/* TextArea */
-	textarea {
+	.modal-body textarea {
 		min-height: 250px;
 		resize: vertical;
+		font-size: 1em;
+	}
+	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	  font-size: 0.8em;
+	}
+	.modal-body form .submit {
+		margin-top: 1rem;
 	}
 	/* Login  */
 	.login-form {
