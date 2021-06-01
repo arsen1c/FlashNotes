@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
-import { SpinnerSmall } from './Spinner';
+import { SpinnerSmall } from './Animations';
 
 export default function AddTodoModal(props) {
 	const [title, setTitle] = useState(null);
@@ -59,6 +59,7 @@ export default function AddTodoModal(props) {
 							<input name="title" type="text" onChange={(e) => setTitle(e.target.value)} placeholder="Your cool title..." required />
 							<label><h3>Description</h3></label>
 							<textarea name="description" className="textarea" onChange={(e) => setDescription(e.target.value)} placeholder="Your cool description..." />
+							<p className="learn-more">Learn more about <a href="https://www.markdownguide.org/basic-syntax/" className="link">Markdown</a></p>
 							<button className="submit">{buttonText}</button>
 						</form>
 					</div>

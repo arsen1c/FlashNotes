@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SpinnerSmall } from './Spinner';
+import { SpinnerSmall } from './Animations';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 

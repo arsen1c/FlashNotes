@@ -8,5 +8,5 @@ function SpinnerSmall() {
 
 export {
 	Spinner,
-	SpinnerSmall
+	SpinnerSmall,
 }

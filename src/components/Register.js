@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
-import { SpinnerSmall } from './Spinner';
+import { SpinnerSmall } from './Animations';
 
 const Register = (porps) => {
 	const [username, setUsername] = useState('');
@@ -8,7 +8,7 @@ const Register = (porps) => {
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setconfirmPassword] = useState('');
 	const [errorText, setErrorText] = useState('');
-	const [buttonText, setbuttonText] = useState('Submit');
+	const [buttonText, setbuttonText] = useState('Register');
 	const history = useHistory();
 
 	const handleSubmit = (e) => {
