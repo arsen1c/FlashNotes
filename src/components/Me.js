@@ -5,7 +5,7 @@ import { Spinner } from './Spinner';
 
 const Me = (props) => {
 	const isAuthenticated = localStorage.getItem('jwt');
-	const { data, error, isPending } = useFetch('http://localhost:4000/api/me', JSON.parse(localStorage.getItem('jwt')));
+	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/me', JSON.parse(localStorage.getItem('jwt')));
 	
 	return isAuthenticated ? (
 		<div>
