@@ -608,7 +608,7 @@ form .learn-more a {
 	}
 	/* TextArea */
 	textarea {
-		min-height: 300px;
+		min-height: 250px;
 		resize: vertical;
 	}
 	/* Login  */
