@@ -13,8 +13,8 @@ A note taking app built using ReactJS. This app also has an option for markdown 
 
 # Run locally
 ```code
-$ git clone https://github.com/arsen1c/React-Todo.git
-$ cd React-Todo
+$ git clone https://github.com/arsen1c/FlashNotes.git
+$ cd FlashNotes
 $ npm install
 $ npm start
 ```
