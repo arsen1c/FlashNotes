@@ -341,7 +341,7 @@ form {
 	display: flex;
 	flex-direction: column;
 }
-form label {
+.modal-body form label {
 	text-decoration: underline 3px var(--accent-color);
 }
 form input,
@@ -361,7 +361,7 @@ textarea {
 	font-family: inherit;
 }
 button.submit {
-	margin-top: 2rem;
+	margin-top: 1rem;
 	max-width: 150px;
 	padding: 0.6rem;
 	cursor: pointer;
@@ -438,6 +438,13 @@ form .learn-more a {
 	margin-top: 1rem;
 	text-align: right;
 	cursor: pointer;
+}
+.details-description p > code {
+	background: var(--main-bg);
+	font-family: 'Courier New', monospace;
+	font-size: 0.8em;
+	padding: 0.2rem;
+	border-radius: 3px;
 }
 
 /*  Login Form  */
@@ -600,6 +607,14 @@ form .learn-more a {
 		resize: vertical;
 	}
 
+	.modal-content {
+		font-size: 0.9em;
+	}
+	.modal-body input,
+	.modal-body textarea {
+		font-size: 1em;
+	}
+
 	/* Login-Form  */
 	.login-form {
 		width: 100%;
@@ -625,6 +640,9 @@ form .learn-more a {
 	}
 }
 @media (max-width: 420px) {
+	body {
+		font-size: 0.9em;
+	}
 	.user-info {
 		max-width: 300px;
 	}
