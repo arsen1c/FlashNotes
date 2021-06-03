@@ -32,7 +32,13 @@ const Login = (porps) => {
 			// return res.json();
 		}).then(data => {
 			setbuttonText('Login')
-			const jwt = data.accessToken;
+			const days = 3
+			const jwt = {};
+
+			// Set token and expiry data for jwt
+			jwt['token'] = data.accessToken;
+			jwt['expiry'] = new Date(Date.now() + days*24*60*60*1000).getTime();
+
 			window.localStorage.setItem("jwt", JSON.stringify(jwt));
 			history.push('/me');
 		}).catch(err => {

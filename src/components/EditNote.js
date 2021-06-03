@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { SpinnerSmall } from './Animations';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import { getJwtToken } from '../helpers';
 
 export default function EditNote(props) {
 	const [title, setTitle] = useState(props.title ? props.title : "");
 	const [description, setDescription] = useState(props.description ? props.description : "");
 	const [buttonText, setbuttonText] = useState("Submit");
 	const history = useHistory();
+	const token = getJwtToken();
 
 	const { id } = useParams();
 
@@ -22,7 +24,7 @@ export default function EditNote(props) {
 				method: 'PUT',
 				headers: {
 					"Content-Type": "application/json",
-					"Authorization": `Bearer ${JSON.parse(localStorage.getItem('jwt'))}`
+					"Authorization": `Bearer ${token}`
 				},
 				body: JSON.stringify({ title, description })
 			}).then(res => {

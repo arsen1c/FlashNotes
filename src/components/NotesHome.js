@@ -6,7 +6,7 @@ import AddNoteModal from './AddNoteModal';
 export default function Home (props) {
 	const [showModal, setshowModal] = useState(false);
 	const [collection, setCollection] = useState(props.data);
-	// const [deleteMessage, setdeleteMessage] = useState('');
+
 	const handleModal = (value) => {
 		setshowModal(value);
 	}
@@ -19,7 +19,7 @@ export default function Home (props) {
 		fetch(`https://react-notes-api.vector2912.repl.co/api/notes/${noteId}`, {
 			method: 'DELETE',
 			headers: {
-				"Authorization": `Bearer ${JSON.parse(localStorage.getItem('jwt'))}`
+				"Authorization": `Bearer ${props.token}`
 			}
 		}).then(res => {
 			if (!res.ok) {

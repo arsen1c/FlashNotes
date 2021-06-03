@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import { SpinnerSmall } from './Animations';
+import { getJwtToken } from '../helpers';
 
 export default function AddTodoModal(props) {
 	const [title, setTitle] = useState(null);
 	const [description, setDescription] = useState(null);
 	const [buttonText, setbuttonText] = useState("Submit")
 	const history = useHistory();
+	const token = getJwtToken();
 
-	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/notes', JSON.parse(localStorage.getItem('jwt')));
+	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/notes', token);
  	
 	const handleSubmit = (e) => {
 		setbuttonText(<SpinnerSmall />)
@@ -22,7 +24,7 @@ export default function AddTodoModal(props) {
 				body: JSON.stringify({ id, title, description, date: new Date().getTime() }),
 				headers: { 
 					"Content-Type": "application/json",
-					"Authorization": `Bearer ${JSON.parse(localStorage.getItem('jwt'))}`
+					"Authorization": `Bearer ${token}`
 				},
 				credentials: 'include',
 			}).then(res => {

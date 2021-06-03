@@ -79,6 +79,13 @@ pre {
 	overflow-x: auto;
 	margin: 1rem 0;
 }
+blockquote {
+	border-left: 5px solid var(--white-1);	
+}
+blockquote > * {
+	padding: 0.5rem;
+	margin-left: 0.5rem;
+}
 pre > code {
 	font-family: 'Courier New', monospace;
 	font-size: 0.8rem;
@@ -347,7 +354,7 @@ form {
 form input,
 form textarea {
 	/*max-width: 300px;*/
-	font-size: 1.2rem;
+	font-size: 1rem;
 	outline: none;
 	padding: 5px;
 	margin-top: 1rem;
@@ -390,7 +397,7 @@ label.title {
 textarea {
 	max-width: 100%;
 	min-height: 400px;
-	max-height: 350px;
+	max-height: 500px;
 	resize: vertical;
 }
 .modal-body form label {
