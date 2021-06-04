@@ -70,7 +70,6 @@ body {
   font-size: var(--main-font-size);
   box-sizing: border-box;
 }
-
 pre {
 	width: 100%;
 	background-color: var(--main-bg);
@@ -78,6 +77,13 @@ pre {
 	border-radius: 0.5rem;
 	overflow-x: auto;
 	margin: 1rem 0;
+}
+code {
+	background: var(--main-bg);
+	font-family: 'Courier New', monospace;
+	font-size: 0.8em;
+	padding: 0.2rem;
+	border-radius: 3px;
 }
 blockquote {
 	border-left: 5px solid var(--white-1);	
@@ -356,7 +362,7 @@ form textarea {
 	/*max-width: 300px;*/
 	font-size: 1rem;
 	outline: none;
-	padding: 5px;
+	padding: 7px;
 	margin-top: 1rem;
 	border-radius: 2px;
 	border: none;
@@ -366,6 +372,9 @@ form textarea {
 textarea {
 	min-width: 97%;
 	font-family: inherit;
+}
+form input:focus{
+	border-bottom: 2px solid var(--accent-color);
 }
 button.submit {
 	margin-top: 1rem;
@@ -445,13 +454,6 @@ form .learn-more a {
 	margin-top: 1rem;
 	text-align: right;
 	cursor: pointer;
-}
-.details-description p > code {
-	background: var(--main-bg);
-	font-family: 'Courier New', monospace;
-	font-size: 0.8em;
-	padding: 0.2rem;
-	border-radius: 3px;
 }
 
 /*  Login Form  */
@@ -578,6 +580,8 @@ form .learn-more a {
 	.details {
 		margin: 5px 0;
 		border-radius: 0;
+		padding: 1rem;
+		font-size: 0.9em;
 	}
 	.details-content h1{
 		font-size: 1.5rem;
@@ -671,6 +675,10 @@ form .learn-more a {
 	/* Login  */
 	.login-form {
 		max-width: 300px;
+	}
+	.details {
+		padding: 0.5rem;
+		font-size: 0.8em;
 	}
 
 	.root {

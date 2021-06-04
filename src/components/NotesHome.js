@@ -59,7 +59,7 @@ export default function Home (props) {
 								{ item.description }
 							</h3>
 							<div className="collectionActions">
-								<div className="tasks-date">{new Date(item.date).toLocaleDateString()}</div>
+								<div title={new Date(item.date).toString()} className="tasks-date">{new Date(item.date).toLocaleDateString()}</div>
 								<span className="delete-btn">
 									<i onClick={(e) => handleDelete(e, item.id)} id="delete-collection" className="fas fa-trash link"></i>	
 								</span>
