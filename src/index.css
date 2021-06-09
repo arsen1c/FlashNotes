@@ -1,24 +1,24 @@
 /* General Styling */
 
 :root {
-			/* Primary Colors */
-			--main-bg: #181820;
-			--collection-card-bg: #21212b;
-			--border-dark: #30303d;
-			--accent-color: #fc73a5;
-			--main-font-color: #fff;
-			--link-color: #f1f1f1;
-			--nav-link-color: #f1f1f1;
-			--nav-bar-bg: #21212b;
+	/* Primary Colors */
+	--main-bg: #181820;
+	--collection-card-bg: #21212b;
+	--border-dark: #30303d;
+	--accent-color: #fc73a5;
+	--main-font-color: #fff;
+	--link-color: #f1f1f1;
+	--nav-link-color: #f1f1f1;
+	--nav-bar-bg: #21212b;
 
-			/* Secondary Colors */
-			--white-1: #64646b;
-			--white-2: #7c7c82;
-			--white-3: #9e9ea3;
-			--red:  #eb6057;
-			--submit-button-color: #fff;
-			/* Font Sizes */
-			--main-font-size: 1.1rem; 
+	/* Secondary Colors */
+	--white-1: #64646b;
+	--white-2: #7c7c82;
+	--white-3: #9e9ea3;
+	--red:  #eb6057;
+	--submit-button-color: #fff;
+	/* Font Sizes */
+	--main-font-size: 1.1rem; 
 	
 		/* EXPERIMENTS  */
 /*		--main-bg: #fff;
@@ -310,8 +310,8 @@ nav > .links .link:hover ,
 	transition: all 800ms ease-out;
 	z-index: 20;
 	max-height: 100%;
-	animation: fade;
-	animation-duration: 400ms;
+	/*animation: fade;*/
+	/*animation-duration: 400ms;*/
 }
 @keyframes fade{
 	0% {
