@@ -11,29 +11,32 @@ export default function Home (props) {
 		setshowModal(value);
 	}
 
-	const handleDelete = (e, noteId) => {
-		const parentElement = e.target.parentElement;
-		parentElement.parentElement.parentElement.style.opacity = "0.5";
-		parentElement.innerText = 'Deleting...';
+	const handleDelete = (e, noteId) => {M
+		const answer = confirm('Do you want to delete this note?');	
 
-		fetch(`https://react-notes-api.vector2912.repl.co/api/notes/${noteId}`, {
-			method: 'DELETE',
-			headers: {
-				"Authorization": `Bearer ${props.token}`
-			}
-		}).then(res => {
-			if (!res.ok) {
-				parentElement.innerText = 'Error Deleting';
-				return new Error('Error Deleting');
-			}
-			return res.json();
-		}).then(data => {
-			// console.log(data);
-			// setdeleteMessage('Deleted Succesfully!');
-			setCollection([...data.notes])
-		}).catch(err => {
-			console.log(err);
-		})
+		if (answer) {
+			const parentElement = e.target.parentElement;
+			parentElement.parentElement.parentElement.style.opacity = "0.5";
+			parentElement.innerText = 'Deleting...';
+			fetch(`https://react-notes-api.vector2912.repl.co/api/notes/${noteId}`, {
+				method: 'DELETE',
+				headers: {
+					"Authorization": `Bearer ${props.token}`
+				}
+			}).then(res => {
+				if (!res.ok) {
+					parentElement.innerText = 'Error Deleting';
+					return new Error('Error Deleting');
+				}
+				return res.json();
+			}).then(data => {
+				// console.log(data);
+				// setdeleteMessage('Deleted Succesfully!');
+				setCollection([...data.notes])
+			}).catch(err => {
+				console.log(err);
+			})
+		}
 	}	
 
 	return (
