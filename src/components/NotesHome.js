@@ -11,7 +11,7 @@ export default function Home (props) {
 		setshowModal(value);
 	}
 
-	const handleDelete = (e, noteId) => {M
+	const handleDelete = (e, noteId) => {
 		const answer = confirm('Do you want to delete this note?');	
 
 		if (answer) {
