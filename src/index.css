@@ -1,5 +1,4 @@
-/* General Styling */
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600&display=swap');
 :root {
 	/* Primary Colors */
 	--main-bg: #181820;
@@ -18,7 +17,7 @@
 	--red:  #eb6057;
 	--submit-button-color: #fff;
 	/* Font Sizes */
-	--main-font-size: 1.1rem; 
+	--main-font-size: 1.2rem; 
 	
 		/* EXPERIMENTS  */
 /*		--main-bg: #fff;
@@ -64,7 +63,8 @@
 
 body {
   margin: 0;
-  font-family: sans-serif;
+  /*font-family: sans-serif;*/
+  font-family: 'Montserrat', sans-serif;
   background-color: var(--main-bg);
   color: var(--main-font-color);
   font-size: var(--main-font-size);
@@ -360,7 +360,8 @@ form {
 form input,
 form textarea {
 	/*max-width: 300px;*/
-	font-size: 1rem;
+	font-family: 'Montserrat';
+	font-size: 1.1rem;
 	outline: none;
 	padding: 7px;
 	margin-top: 1rem;
@@ -408,6 +409,7 @@ textarea {
 	min-height: 400px;
 	max-height: 500px;
 	resize: vertical;
+	line-height: 2;
 }
 .modal-body form label {
 	margin-top:  1rem;
@@ -516,11 +518,11 @@ form .learn-more a {
 @media (max-width: 620px) {
 	.root {
 		margin-top: 15rem;
-		font-size: 1rem;
+		font-size: 1.1rem;
 		padding: 0;
 	}
 	.header {
-		font-size: .9rem;
+		font-size: 1rem;
 	}
 	.total-notes {
 		text-align: left;
@@ -539,7 +541,7 @@ form .learn-more a {
 		right: 2rem;
 		bottom: 2rem;
 		padding: 1rem;
-		font-size: 1.8rem;
+		font-size: 1.9rem;
 		border-radius: 5px;
 		border-top-right-radius: 25%;
 		border-bottom-left-radius: 25%;
@@ -563,7 +565,7 @@ form .learn-more a {
 	.modal-content {
 		margin: 2rem auto auto auto;
 		min-width: 100%;
-		font-size: 1rem;
+		font-size: 1.1rem;
 	}
 	/* Cards */
 	.collection-card {
@@ -584,7 +586,7 @@ form .learn-more a {
 		font-size: 0.9em;
 	}
 	.details-content h1{
-		font-size: 1.5rem;
+		font-size: 1.6rem;
 	}
 
 	/* Navbar */
@@ -609,7 +611,7 @@ form .learn-more a {
 
 	/*Next Button */
 	.next {
-		font-size: 2rem;
+		font-size: 2.1rem;
 	}
 
 	/* TextArea */
@@ -619,11 +621,11 @@ form .learn-more a {
 	}
 
 	.modal-content {
-		font-size: 0.9em;
+		font-size: 1em;
 	}
 	.modal-body input,
 	.modal-body textarea {
-		font-size: 1em;
+		font-size: 1.1em;
 	}
 
 	/* Login-Form  */
@@ -632,11 +634,11 @@ form .learn-more a {
 		max-width: 400px;
 		min-width: 300px;
 		overflow: hidden;
-		font-size: 1rem;
+		font-size: 1.1rem;
 	}
 
 	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-	  font-size: 1rem;
+	  font-size: 1.1rem;
 	}
 	:-ms-input-placeholder { /* Internet Explorer 10-11 */
 	  color: var(--white-2);
@@ -652,13 +654,13 @@ form .learn-more a {
 }
 @media (max-width: 420px) {
 	body {
-		font-size: 0.9em;
+		font-size: 1em;
 	}
 	.user-info {
 		max-width: 300px;
 	}
 	.modal-body {
-		font-size: 0.8em;	
+		font-size: 0.9em;	
 	}
 	/* TextArea */
 	.modal-body textarea {
@@ -667,7 +669,7 @@ form .learn-more a {
 		font-size: 1em;
 	}
 	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-	  font-size: 0.8em;
+	  font-size: 0.9em;
 	}
 	.modal-body form .submit {
 		margin-top: 1rem;
@@ -682,7 +684,7 @@ form .learn-more a {
 	}
 
 	.root {
-		font-size: 0.9rem;
+		font-size: 1rem;
 	}
 }
 
