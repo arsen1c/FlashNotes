@@ -32,7 +32,7 @@ const Login = (porps) => {
 			// return res.json();
 		}).then(data => {
 			setbuttonText('Login')
-			const days = 3
+			const days = 7; //invalidate the token in 7 days
 			const jwt = {};
 
 			// Set token and expiry data for jwt
