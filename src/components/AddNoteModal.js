@@ -3,16 +3,35 @@ import { useHistory } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import { SpinnerSmall } from './Animations';
 import { getJwtToken } from '../helpers';
+import ReactMarkdown from 'react-markdown';
 
 export default function AddTodoModal(props) {
 	const [title, setTitle] = useState(null);
 	const [description, setDescription] = useState(null);
 	const [buttonText, setbuttonText] = useState("Submit")
+	const [markdown, setMarkdown] = useState(false);
+	const [markdownButton, setMarkdownButton] = useState('Enable preview');
+	const [previewButton, setpreviwButton] = useState('');
+
 	const history = useHistory();
 	const token = getJwtToken();
 
 	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/notes', token);
  	
+	const handleMarkdownToggle = (e) => {
+		e.preventDefault();
+		setMarkdown(!markdown);
+
+		if (!markdown) {
+			setMarkdownButton('Disable preview');
+			setpreviwButton('-slash');
+		} else {
+			setMarkdownButton('Enable preview');
+			setpreviwButton('');
+		}
+		console.log('Markdown:', markdown);
+	}
+
 	const handleSubmit = (e) => {
 		setbuttonText(<SpinnerSmall />)
 		try {
@@ -59,8 +78,12 @@ export default function AddTodoModal(props) {
 						<form onSubmit={handleSubmit}>
 							<label><h3>Title</h3></label>
 							<input name="title" type="text" onChange={(e) => setTitle(e.target.value)} placeholder="Your cool title..." required />
-							<label><h3>Description</h3></label>
-							<textarea name="description" className="textarea" onChange={(e) => setDescription(e.target.value)} placeholder="Your cool description..." />
+							<div className="desc">
+								<label><h3>Description</h3></label>
+								<span className="toggle-preview-text">{markdownButton} <i className={`fas fa-eye${previewButton} toggle-preview`} onClick={(e) => handleMarkdownToggle(e)}></i></span>
+							</div>
+							{!markdown && <textarea name="description" className="textarea" onChange={(e) => setDescription(e.target.value)} placeholder="Your cool description..." value={description} />}
+							{markdown && <ReactMarkdown className="markdown-preview" children={description}/>}
 							<p className="learn-more">Learn more about <a href="https://www.markdownguide.org/basic-syntax/" className="link">Markdown</a></p>
 							<button className="submit">{buttonText}</button>
 						</form>

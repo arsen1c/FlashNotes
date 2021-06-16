@@ -359,7 +359,36 @@ form {
 }
 .modal-body form label {
 	text-decoration: underline 3px var(--accent-color);
+
 }
+.modal-body form > .desc {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+
+.toggle-preview-text,
+.markdown-preview {
+	position: relative;
+	top: 0.45rem;
+}
+
+.toggle-preview-text {
+	font-size: 0.8em;
+	display: flex;
+	align-items: center;
+	color: var(--white-3);
+}
+.toggle-preview-text > * {
+	margin: 0 0.5rem;
+}
+.toggle-preview {
+	color: var(--accent-color);
+	cursor: pointer;
+	font-size: 1.5em;
+}
+
 form input,
 form textarea {
 	/*max-width: 300px;*/
@@ -373,9 +402,24 @@ form textarea {
 	background: var(--border-dark);
 	color: var(--main-font-color);
 }
-textarea {
-	min-width: 97%;
+textarea,
+.markdown-preview {
 	font-family: inherit;
+}
+.markdown-preview {
+	box-sizing: border-box;
+	background: var(--collection-card-bg);
+	border-radius: 5px;
+	padding: 1rem;
+	font-size: 0.9em;
+	max-width: 600px;
+	min-width: 100%;
+	margin: 1rem 0;
+}
+.markdown-preview p > img {
+	width: auto;
+	max-width: 100%;
+	height: auto;
 }
 form input:focus{
 	border-bottom: 2px solid var(--accent-color);
