@@ -26,7 +26,7 @@ const Note = ({ notes, id }) => {
 				<div onClick={() => handleModal(true)} className="edit"><i className="far fa-edit fa-2x link"></i></div>
 				<i className="fas fa-arrow-left fa-2x" onClick={handleBackButton}></i>			
 				<h1 className="details-heading">{note[0].title}</h1>
-				<div className="details-date tasks-date">{new Date(note[0].date).toLocaleDateString()}</div>	
+				<div title={new Date(note[0].date).toString()} className="details-date tasks-date">{new Date(note[0].date).toLocaleDateString()}</div>	
 				<div className="details-description">
 					<ReactMarkdown  children={note[0].description} />
 				</div>

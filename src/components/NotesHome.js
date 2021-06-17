@@ -5,7 +5,7 @@ import AddNoteModal from './AddNoteModal';
 
 export default function Home (props) {
 	const [showModal, setshowModal] = useState(false);
-	const [collection, setCollection] = useState(props.data);
+	const [collection, setCollection] = useState([...props.data].reverse());
 
 	const handleModal = (value) => {
 		setshowModal(value);
@@ -30,9 +30,7 @@ export default function Home (props) {
 				}
 				return res.json();
 			}).then(data => {
-				// console.log(data);
-				// setdeleteMessage('Deleted Succesfully!');
-				setCollection([...data.notes])
+				setCollection([...data.notes].reverse())
 			}).catch(err => {
 				console.log(err);
 			})
@@ -45,7 +43,6 @@ export default function Home (props) {
 			<div className="addCollection link" onClick={() => handleModal(true)}>
 				+
 			</div>
-			{/*<div>{deleteMessage}</div>*/}
 			<div className="division">
 				<div className="total-notes">Total Notes: <span className="total">{collection.length}</span></div>
 			</div>
