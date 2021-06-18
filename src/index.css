@@ -102,6 +102,25 @@ a {
 	color: var(--accent-color);
 }
 
+.markdown-preview > h1, 
+.markdown-preview > h2, 
+.markdown-preview > h3, 
+.markdown-preview > h4, 
+.markdown-preview > h5, 
+.markdown-preview > h6 {
+	margin: 0.5rem 0;
+	/*margin-bottom: 0.5rem;*/
+}
+
+.details-description > h1, 
+.details-description > h2, 
+.details-description > h3, 
+.details-description > h4, 
+.details-description > h5, 
+.details-description > h6 {
+	margin: 0.5rem 0;
+}
+
 /* Navigation Css */
 
 nav {
