@@ -7,22 +7,8 @@ import Register from './auth/Register.js';
 import Me from './home/Me.js';
 import Home from './home/Home.js';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { getJWT, getJwtToken } from '../helpers';
 
 function App() {
-
-	const token = getJwtToken();
-
-	useEffect(() => {
-		const jwt = getJWT();
-		if (jwt) {
-			const now = new Date(Date.now()).getTime();
-			if (now > jwt.expiry) {
-				localStorage.removeItem('jwt');
-			};
-		} 
-	}, [])
-
   return (
     <Router>
     	<div className="App">
@@ -32,7 +18,7 @@ function App() {
 	        		<Home />
 	        	</Route>
 	        	<Route exact path="/notes">
-	        		<Notes token={token}/>
+	        		<Notes/>
 	        	</Route>
 	        	<Route path="/notes/:id">
 	        		<NoteDetails />
@@ -44,7 +30,7 @@ function App() {
 	        		<Register />
 	        	</Route>
 	        	<Route path="/me">
-	        		<Me token={token}/>
+	        		<Me/>
 	        	</Route>
 	        </Switch>
 	    </div>

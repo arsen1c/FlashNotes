@@ -4,19 +4,15 @@ import { Redirect } from 'react-router-dom';
 import React from 'react';
 import {Spinner} from '../Animations';
 
-function Notes(props) {
-	const isAuthenticated = props.token;
+function Notes() {
+ 	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/notes');
 
- 	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/notes', props.token );
-
-	return isAuthenticated ? (
+	return (
 		<div className="Home">
 			{ error && <div>{ error }</div> }
 			{ isPending && <Spinner></Spinner> }
-		    { data && <NotesHome data={data.data.notes} username={data.data.username} token={props.token}/> }
+		    { data && <NotesHome data={data.data.notes} username={data.data.username}/> }
 		</div>
-	) : (
-		<Redirect to={{ pathname: '/login' }} />
 	)
 }
 

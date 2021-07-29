@@ -3,13 +3,12 @@ import useFetch from '../../hooks/useFetch';
 import { Redirect } from 'react-router-dom';
 import { Spinner } from '../Animations';
 
-const Me = (props) => {
-	const isAuthenticated = localStorage.getItem('jwt');
-	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/me', props.token);
+const Me = () => {
+	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/me');
 	
-	return isAuthenticated ? (
+	return (
 		<div>
-			{ error && <div>{ error }</div> }
+			{ error && <Redirect to={{ pathname: '/login' }} /> }
 			{isPending && <Spinner />}	
 			{ data && (
 					<div className="user-info">
@@ -22,8 +21,6 @@ const Me = (props) => {
 				) 
 			}
 		</div>
-	) : (
-		<Redirect to={{ pathname: '/login' }} />
 	)
 }
 

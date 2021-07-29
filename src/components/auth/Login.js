@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
 import { SpinnerSmall } from '../Animations';
-import axios from 'axios';
 
 const Login = (porps) => {
 
@@ -13,33 +12,26 @@ const Login = (porps) => {
 
 	// const localHost = 'http://localhost:4000/api/login';
 	const serverLogin = 'https://react-notes-api.vector2912.repl.co/api/login';
+  console.log(document.cookie)
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setbuttonText(<SpinnerSmall />);
 		// Request to server
-		axios.post(serverLogin, { email, password },
-		{
+		fetch(serverLogin, {
+			method: 'POST',
+			headers: { "Content-Type": "application/json" },
 			withCredentials: true,
+			credentials: 'include',
+			body: JSON.stringify({ email, password })
 		}).then(res => {
-			const data = res.data;
 			// console.log(res);
 			if (res.status === 401){ 
 				// console.log(res)
 				setErrorText('invalid credentials');
 				throw new Error('invalid credentials')
 			}
-
-			setbuttonText('Login')
-			const days = 7; //invalidate the token in 7 days
-			const jwt = {};
-
-			// Set token and expiry data for jwt
-			jwt['token'] = data.accessToken;
-			jwt['expiry'] = new Date(Date.now() + days*24*60*60*1000).getTime();
-
-			window.localStorage.setItem("jwt", JSON.stringify(jwt));
-			history.push('/me');
+			return history.push('/notes');
 			// return res.json();
 		}).catch(err => {
 			setbuttonText('Login');

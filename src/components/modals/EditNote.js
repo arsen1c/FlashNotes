@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { SpinnerSmall } from '../Animations';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { getJwtToken } from '../../helpers';
 import ReactMarkdown from 'react-markdown';
 
 export default function EditNote(props) {
@@ -10,7 +9,6 @@ export default function EditNote(props) {
 	const [description, setDescription] = useState(props.description ? props.description : "");
 	const [buttonText, setbuttonText] = useState("Submit");
 	const history = useHistory();
-	const token = getJwtToken();
 	const [markdown, setMarkdown] = useState(false);
 	const [markdownButton, setMarkdownButton] = useState('Enable preview');
 	const [previewButton, setpreviwButton] = useState('');
@@ -41,7 +39,6 @@ export default function EditNote(props) {
 				method: 'PUT',
 				headers: {
 					"Content-Type": "application/json",
-					"Authorization": `Bearer ${token}`
 				},
 				body: JSON.stringify({ title, description })
 			}).then(res => {
