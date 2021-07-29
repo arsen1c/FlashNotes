@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Notes from './notes/Notes.js';
 import NoteDetails from './notes/NoteDetails';
 import Navbar from './navbar/Navbar.jsx';
