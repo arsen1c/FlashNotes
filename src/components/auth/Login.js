@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
 import { SpinnerSmall } from '../Animations';
+import axios from 'axios';
 
 const Login = (porps) => {
 
@@ -17,24 +18,18 @@ const Login = (porps) => {
 		e.preventDefault();
 		setbuttonText(<SpinnerSmall />);
 		// Request to server
-		fetch(serverLogin, {
-			method: 'POST',
-			headers: { "Content-Type": "application/json" },
+		axios.post(serverLogin, { JSON.stringify({ email, password }) },
+		{
 			withCredentials: true,
-			credentials: 'include',
-			body: JSON.stringify({ email, password })
 		}).then(res => {
+			const data = res.data;
 			// console.log(res);
 			if (res.status === 401){ 
 				// console.log(res)
 				setErrorText('invalid credentials');
 				throw new Error('invalid credentials')
 			}
-			return res.json().then(data => {
-				return data;
-			});
-			// return res.json();
-		}).then(data => {
+
 			setbuttonText('Login')
 			const days = 7; //invalidate the token in 7 days
 			const jwt = {};
@@ -45,6 +40,7 @@ const Login = (porps) => {
 
 			window.localStorage.setItem("jwt", JSON.stringify(jwt));
 			history.push('/me');
+			// return res.json();
 		}).catch(err => {
 			setbuttonText('Login');
 		})
