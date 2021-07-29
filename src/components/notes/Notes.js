@@ -1,8 +1,8 @@
 import NotesHome from './NotesHome.js'
-import useFetch from '../hooks/useFetch';
+import useFetch from '../../hooks/useFetch';
 import { Redirect } from 'react-router-dom';
 import React from 'react';
-import {Spinner} from './Animations';
+import {Spinner} from '../Animations';
 
 function Notes(props) {
 	const isAuthenticated = props.token;

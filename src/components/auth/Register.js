@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
-import { SpinnerSmall } from './Animations';
+import { SpinnerSmall } from '../Animations';
 
 const Register = (porps) => {
 	const [username, setUsername] = useState('');

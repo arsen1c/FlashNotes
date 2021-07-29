@@ -1,7 +1,7 @@
 import React from 'react';
-import useFetch from '../hooks/useFetch';
+import useFetch from '../../hooks/useFetch';
 import { Redirect } from 'react-router-dom';
-import { Spinner } from './Animations';
+import { Spinner } from '../Animations';
 
 const Me = (props) => {
 	const isAuthenticated = localStorage.getItem('jwt');

@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useHistory } from 'react-router-dom';
-import EditNote from './EditNote';
-import React from 'react';
+import EditNote from '../modals/EditNote';
 
 const Note = ({ notes, id }) => {
 	const history = useHistory();

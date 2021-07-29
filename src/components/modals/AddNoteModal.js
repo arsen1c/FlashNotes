@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import useFetch from '../hooks/useFetch';
-import { SpinnerSmall } from './Animations';
-import { getJwtToken } from '../helpers';
+import useFetch from '../../hooks/useFetch';
+import { SpinnerSmall } from '../Animations';
+import { getJwtToken } from '../../helpers';
 import ReactMarkdown from 'react-markdown';
 
 export default function AddTodoModal(props) {
 	const [title, setTitle] = useState(null);
-	const [description, setDescription] = useState(null);
+	const [description, setDescription] = useState('Your cool note...');
 	const [buttonText, setbuttonText] = useState("Submit")
 	const [markdown, setMarkdown] = useState(false);
 	const [markdownButton, setMarkdownButton] = useState('Enable preview');
@@ -71,7 +71,7 @@ export default function AddTodoModal(props) {
 			{ data && (
 				<div className="modal-content">
 					<div className="modal-header">
-						<h2>📑 New Note</h2>
+						<h2><span role="img" aria-label="note">📑</span> New Note</h2>
 						<span onClick={props.onClose} className="close-modal-btn"> Close</span>
 					</div>
 					<div className="modal-body">
