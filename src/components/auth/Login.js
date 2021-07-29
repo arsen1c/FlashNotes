@@ -18,7 +18,7 @@ const Login = (porps) => {
 		e.preventDefault();
 		setbuttonText(<SpinnerSmall />);
 		// Request to server
-		axios.post(serverLogin, { JSON.stringify({ email, password }) },
+		axios.post(serverLogin, { email, password },
 		{
 			withCredentials: true,
 		}).then(res => {
