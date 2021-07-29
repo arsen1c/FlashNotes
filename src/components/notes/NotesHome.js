@@ -20,9 +20,6 @@ export default function Home (props) {
 			parentElement.innerText = 'Deleting...';
 			fetch(`https://react-notes-api.vector2912.repl.co/api/notes/${noteId}`, {
 				method: 'DELETE',
-				headers: {
-					"Authorization": `Bearer ${props.token}`
-				}
 			}).then(res => {
 				if (!res.ok) {
 					parentElement.innerText = 'Error Deleting';

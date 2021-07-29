@@ -1,17 +1,12 @@
 import { useState, useEffect } from 'react';
 
-const useFetch = (url, jwt) => {
+const useFetch = (url) => {
 	const [data, setData] = useState(null);
 	const [isPending, setisPending] = useState(true);
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		fetch(url, {
-			headers: {
-				"Authorization": `Bearer ${jwt}`
-			},
-			credentials: 'include'
-		})
+		fetch(url)
 			.then(res => {
 				// Check for errors in response
 				if (!res.ok) {
@@ -29,8 +24,8 @@ const useFetch = (url, jwt) => {
 				setError(err.message);
 				setisPending(false);
 			})
-	}, [url, jwt]);
-
+	}, [url]);
+	
 	return { data, isPending, error };
 
 }

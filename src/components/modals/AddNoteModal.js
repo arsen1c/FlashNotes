@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import { SpinnerSmall } from '../Animations';
-import { getJwtToken } from '../../helpers';
 import ReactMarkdown from 'react-markdown';
 
 export default function AddTodoModal(props) {
@@ -14,9 +13,8 @@ export default function AddTodoModal(props) {
 	const [previewButton, setpreviwButton] = useState('');
 
 	const history = useHistory();
-	const token = getJwtToken();
 
-	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/notes', token);
+	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/notes');
  	
 	const handleMarkdownToggle = (e) => {
 		e.preventDefault();
@@ -43,7 +41,6 @@ export default function AddTodoModal(props) {
 				body: JSON.stringify({ id, title, description, date: new Date().getTime() }),
 				headers: { 
 					"Content-Type": "application/json",
-					"Authorization": `Bearer ${token}`
 				},
 				credentials: 'include',
 			}).then(res => {
