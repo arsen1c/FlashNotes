@@ -1,4 +1,4 @@
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import Note from './Note';
 import React from 'react'; 
