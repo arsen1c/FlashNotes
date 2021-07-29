@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { SpinnerSmall } from './Animations';
+import { SpinnerSmall } from '../Animations';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { getJwtToken } from '../helpers';
+import { getJwtToken } from '../../helpers';
 import ReactMarkdown from 'react-markdown';
 
 export default function EditNote(props) {
@@ -37,7 +37,7 @@ export default function EditNote(props) {
 		try {
 			e.preventDefault();
 			
-			fetch(`https://react-notes-api.vector2912.repl.co/api/notes/${parseInt(id)}`, {
+			fetch(`https://react-notes-api.vector2912.repl.co/api/notes/${parseInt(id, 10)}`, {
 				method: 'PUT',
 				headers: {
 					"Content-Type": "application/json",
@@ -70,7 +70,7 @@ export default function EditNote(props) {
 		<div className="modal">
 			<div className="modal-content">
 				<div className="modal-header">
-					<h2>📑 Edit Note</h2>
+					<h2><span role="img" aria-label="note">📑</span> Edit Note</h2>
 					<span onClick={props.onClose} className="close-modal-btn"> Close</span>
 				</div>
 				<div className="modal-body">

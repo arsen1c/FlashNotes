@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from './Header';
-import AddNoteModal from './AddNoteModal';
+import Header from '../header/Header';
+import AddNoteModal from '../modals/AddNoteModal';
 
 export default function Home (props) {
 	const [showModal, setshowModal] = useState(false);
@@ -12,7 +12,7 @@ export default function Home (props) {
 	}
 
 	const handleDelete = (e, noteId) => {
-		const answer = confirm('Do you want to delete this note?');	
+		const answer = window.confirm('Do you want to delete this note?');	
 
 		if (answer) {
 			const parentElement = e.target.parentElement;
