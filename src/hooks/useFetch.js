@@ -9,9 +9,7 @@ const useFetch = (endpoint) => {
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		fetch(server.concat(endpoint), {
-			'credentials': 'include'
-		})
+		fetch(server.concat(endpoint))
 			.then(res => {
 				// Check for errors in response
 				if (!res.ok) {

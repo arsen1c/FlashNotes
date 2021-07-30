@@ -18,7 +18,7 @@ const Login = (porps) => {
 			method: 'POST',
 			headers: { "Content-Type": "application/json" },
 			withCredentials: true,
-			credentials: 'include',
+			credentials: 'same-origin',
 			body: JSON.stringify({ email, password })
 		}).then(res => {
 			// console.log(res);
