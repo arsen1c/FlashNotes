@@ -7,7 +7,7 @@ import {Spinner} from '../Animations';
 const NoteDetails = (props) => {
 	const { id } = useParams();
 
-	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/notes');
+	const { data, error, isPending } = useFetch('/notes');
 	return (
 		<div>
 			{ error && <div>{ error }</div> }

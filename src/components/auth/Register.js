@@ -16,7 +16,7 @@ const Register = (porps) => {
 		setbuttonText(<SpinnerSmall />);
 
 		// Request to server
-		fetch("https://react-notes-api.vector2912.repl.co/api/register", {
+		fetch("/register", {
 			method: 'POST',
 			headers: { "Content-Type": "application/json" },
 			credentials: 'include',

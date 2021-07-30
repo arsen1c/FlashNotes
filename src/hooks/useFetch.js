@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
 
-const useFetch = (url) => {
+const localHost = 'http://localhost:4000/api';
+// const server = 'https://react-notes-api.vector2912.repl.co/api/';
+
+const useFetch = (endpoint) => {
 	const [data, setData] = useState(null);
 	const [isPending, setisPending] = useState(true);
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		fetch(url)
+		fetch(localHost.concat(endpoint), {
+			'credentials': 'include'
+		})
 			.then(res => {
 				// Check for errors in response
 				if (!res.ok) {
@@ -24,7 +29,7 @@ const useFetch = (url) => {
 				setError(err.message);
 				setisPending(false);
 			})
-	}, [url]);
+	}, [endpoint]);
 	
 	return { data, isPending, error };
 
