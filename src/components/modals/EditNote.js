@@ -37,7 +37,7 @@ export default function EditNote(props) {
 		try {
 			e.preventDefault();
 			
-			fetch(`${localhost || server}/${parseInt(id, 10)}`, {
+			fetch(`${server}/${parseInt(id, 10)}`, {
 				method: 'PUT',
 				headers: {
 					"Content-Type": "application/json",
