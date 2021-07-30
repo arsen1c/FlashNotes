@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 // const localHost = 'http://localhost:4000/api';
-const server = 'https://react-notes-api.vector2912.repl.co/api/';
+const server = 'https://react-notes-api.vector2912.repl.co/api';
 
 const useFetch = (endpoint) => {
 	const [data, setData] = useState(null);
