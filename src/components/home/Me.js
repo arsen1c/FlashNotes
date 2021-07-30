@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { Spinner } from '../Animations';
 
 const Me = () => {
-	const { data, error, isPending } = useFetch('https://react-notes-api.vector2912.repl.co/api/me');
+	const { data, error, isPending } = useFetch('/me');
 	
 	return (
 		<div>

@@ -18,7 +18,7 @@ export default function Home (props) {
 			const parentElement = e.target.parentElement;
 			parentElement.parentElement.parentElement.style.opacity = "0.5";
 			parentElement.innerText = 'Deleting...';
-			fetch(`https://react-notes-api.vector2912.repl.co/api/notes/${noteId}`, {
+			fetch(`http://localhost:4000/api/notes/${noteId}`, {
 				method: 'DELETE',
 			}).then(res => {
 				if (!res.ok) {
