@@ -16,8 +16,8 @@ export default function AddTodoModal(props) {
 
 	const { data, error, isPending } = useFetch('/notes');
  	
- 	const localhost = 'http://localhost:4000/api/notes';
- 	// const server = 'https://react-notes-api.vector2912.repl.co/api/notes';
+ 	// const localhost = 'http://localhost:4000/api/notes';
+ 	const server = 'https://react-notes-api.vector2912.repl.co/api/notes';
 
 	const handleMarkdownToggle = (e) => {
 		e.preventDefault();
@@ -39,7 +39,7 @@ export default function AddTodoModal(props) {
 			e.preventDefault();
 			e.target.querySelector('button').disabled = true;
 			const id = !data.data.notes.length > 0 ? 1 : data.data.notes[data.data.notes.length - 1].id + 1;
-			fetch(localhost, {
+			fetch(localhost || server, {
 				method: 'POST',
 				body: JSON.stringify({ id, title, description, date: new Date().getTime() }),
 				headers: { 
