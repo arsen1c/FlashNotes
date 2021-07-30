@@ -10,15 +10,18 @@ const Login = (porps) => {
 	const [buttonText,  setbuttonText] = useState('Login');
 	const history = useHistory();
 
+	// const localhost = 'http://localhost:4000/api/login';
+ 	const server = 'https://react-notes-api.vector2912.repl.co/api/login';
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setbuttonText(<SpinnerSmall />);
 		// Request to server
-		fetch('/login', {
+		fetch(server, {
 			method: 'POST',
 			headers: { "Content-Type": "application/json" },
 			withCredentials: true,
-			credentials: 'same-origin',
+			credentials: 'include',
 			body: JSON.stringify({ email, password })
 		}).then(res => {
 			// console.log(res);
