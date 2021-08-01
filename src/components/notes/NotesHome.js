@@ -23,6 +23,7 @@ export default function Home (props) {
 			parentElement.innerText = 'Deleting...';
 			fetch(`${server}/${noteId}`, {
 				method: 'DELETE',
+				credentials: 'include'
 			}).then(res => {
 				if (!res.ok) {
 					parentElement.innerText = 'Error Deleting';

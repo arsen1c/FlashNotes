@@ -10,7 +10,8 @@ const useFetch = (endpoint) => {
 
 	useEffect(() => {
 		fetch(server.concat(endpoint), {
-			credentials: 'include'
+			credentials: 'include',
+			'Access-Control-Allow-Methods': 'OPTIONS, GET, POST, DELETE, PUT',
 		})
 			.then(res => {
 				// Check for errors in response
