@@ -11,8 +11,8 @@ export default function Home (props) {
 		setshowModal(value);
 	}
 
-	const localhost = 'http://localhost:4000/api/notes';
- 	// const server = 'https://react-notes-api.vector2912.repl.co/api/notes';
+	// const localhost = 'http://localhost:4000/api/notes';
+ 	const server = 'https://react-notes-api.vector2912.repl.co/api/notes';
 
 	const handleDelete = (e, noteId) => {
 		const answer = window.confirm('Do you want to delete this note?');	
@@ -21,7 +21,7 @@ export default function Home (props) {
 			const parentElement = e.target.parentElement;
 			parentElement.parentElement.parentElement.style.opacity = "0.5";
 			parentElement.innerText = 'Deleting...';
-			fetch(`${localhost}/${noteId}`, {
+			fetch(`${server}/${noteId}`, {
 				method: 'DELETE',
 				credentials: 'include'
 			}).then(res => {
