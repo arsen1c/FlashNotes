@@ -36,13 +36,14 @@ export default function EditNote(props) {
 		setbuttonText(<SpinnerSmall />)
 		try {
 			e.preventDefault();
-			
+				
 			fetch(`${server}/${parseInt(id, 10)}`, {
 				method: 'PUT',
+				credentials: 'include',
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify({ title, description })
+				body: JSON.stringify({ title, description }),
 			}).then(res => {
 				return res.json().then(data => {
 					return data;
