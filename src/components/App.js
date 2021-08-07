@@ -4,7 +4,7 @@ import NoteDetails from './notes/NoteDetails';
 import Navbar from './navbar/Navbar.jsx';
 import Login from './auth/Login.js';
 import Register from './auth/Register.js';
-import Me from './home/Me.js';
+import { Me } from './home/Me.js';
 import Home from './home/Home.js';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 

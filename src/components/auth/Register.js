@@ -15,8 +15,11 @@ const Register = (porps) => {
     e.preventDefault();
     setbuttonText(<SpinnerSmall />);
 
+    // const localhost = 'http://localhost:4000/api';
+    const server = 'https://react-notes-api.vector2912.repl.co/api';
+
     // Request to server
-    fetch('/register', {
+    fetch(`${server}/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',

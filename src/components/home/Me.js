@@ -3,7 +3,7 @@ import useFetch from '../../hooks/useFetch';
 import { Redirect } from 'react-router-dom';
 import { Spinner } from '../Animations';
 
-const Me = () => {
+export const Me = () => {
   const { data, error, isPending } = useFetch('/me');
 
   return (
@@ -24,5 +24,3 @@ const Me = () => {
     </div>
   );
 };
-
-export default Me;

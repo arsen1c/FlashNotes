@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
 import { useHistory } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 import EditNote from '../modals/EditNote';
 
 const Note = ({ notes, id }) => {
