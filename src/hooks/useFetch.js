@@ -14,11 +14,9 @@ const useFetch = (endpoint) => {
       'Access-Control-Allow-Methods': 'OPTIONS, GET, POST, DELETE, PUT',
     })
       .then((res) => {
-        // Check for errors in response
         if (!res.ok) {
           throw Error('Could not fetch the data for that resource');
         }
-        // Convert the response to JSON;
         return res.json();
       })
       .then((data) => {

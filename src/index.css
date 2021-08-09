@@ -171,8 +171,11 @@ nav > .links .link:hover,
 }
 .logo:hover {
   /*color: #fff;*/
-  clor: -webkit-linear-gradient(190deg, #f7c79c, #fc73a5);
+  color: -webkit-linear-gradient(190deg, #f7c79c, #fc73a5);
 }
+nav > h1 > a {
+  text-decoration: none;
+} 
 .github {
   font-size: 2rem;
 }
@@ -189,27 +192,11 @@ nav > .links .link:hover,
   -webkit-text-fill-color: transparent;
   margin-top: 1rem;
   cursor: pointer;
-  animation: beat;
-  animation-duration: 2.4s;
-  animation-iteration-count: infinite;
-  transition: transform ease-in;
+  transition: scale 200ms ease;
+  padding: 0.15rem;
 }
 .next:hover {
-  animation: none;
-}
-@keyframes beat {
-  0% {
-    transform: scale(0.9);
-    /*transform: translateX(6px);*/
-  }
-  50% {
-    transform: scale(1.1);
-    /*transform: translateX(-6px);*/
-  }
-  100% {
-    transform: scale(0.9);
-    /*transform: translateX(6px);*/
-  }
+  scale: 1.05;
 }
 
 .root {
@@ -494,7 +481,7 @@ form .learn-more a {
 .details {
   position: relative;
   margin: 5rem auto;
-  max-width: 650px;
+  max-width: 700px;
   background: var(--collection-card-bg);
   border-radius: 1rem;
   padding: 2rem;

@@ -1,7 +1,7 @@
 import React from 'react';
 import useFetch from '../../hooks/useFetch';
 import { Redirect } from 'react-router-dom';
-import { Spinner } from '../Animations';
+import { Spinner } from '../animations/Animations';
 
 export const Me = () => {
   const { data, error, isPending } = useFetch('/me');

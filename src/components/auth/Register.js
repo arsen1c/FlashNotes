@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import { SpinnerSmall } from '../Animations';
+import { SpinnerSmall } from '../animations/Animations';
 
 const Register = (porps) => {
   const [username, setUsername] = useState('');
@@ -18,7 +18,6 @@ const Register = (porps) => {
     // const localhost = 'http://localhost:4000/api';
     const server = 'https://react-notes-api.vector2912.repl.co/api';
 
-    // Request to server
     fetch(`${server}/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -32,9 +31,7 @@ const Register = (porps) => {
       }),
     })
       .then((res) => {
-        // console.log(res.ok);
         if (res.status === 401) {
-          // console.log(res)
           res.json().then((data) => setErrorText(data.message));
           throw new Error('Error Register');
         }
@@ -46,18 +43,18 @@ const Register = (porps) => {
             }
             setErrorText(data.message);
           });
+
           throw new Error('Validation Error');
         }
+        
         return res.json();
       })
       .then((data) => {
-        // console.log('Data:', data);
         setbuttonText('Register');
         history.push('/login');
       })
       .catch((err) => {
         setbuttonText('Register');
-        // console.log('Error Occurred!');
       });
   };
 
