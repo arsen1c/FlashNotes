@@ -175,7 +175,7 @@ nav > .links .link:hover,
 }
 nav > h1 > a {
   text-decoration: none;
-} 
+}
 .github {
   font-size: 2rem;
 }
@@ -192,11 +192,12 @@ nav > h1 > a {
   -webkit-text-fill-color: transparent;
   margin-top: 1rem;
   cursor: pointer;
-  transition: scale 200ms ease;
+  transition: transform 400ms ease;
   padding: 0.15rem;
 }
 .next:hover {
-  scale: 1.05;
+  transform: scale(1.1);
+  transition: transform 300ms ease;
 }
 
 .root {

@@ -46,7 +46,7 @@ const Register = (porps) => {
 
           throw new Error('Validation Error');
         }
-        
+
         return res.json();
       })
       .then((data) => {

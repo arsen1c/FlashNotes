@@ -15,7 +15,7 @@ const Login = (porps) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setbuttonText(<SpinnerSmall />);
-    
+
     fetch(server, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
