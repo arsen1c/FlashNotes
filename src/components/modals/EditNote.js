@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SpinnerSmall } from '../Animations';
+import { SpinnerSmall } from '../animations/Animations';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
@@ -31,7 +31,6 @@ export default function EditNote(props) {
       setMarkdownButton('Enable preview');
       setpreviwButton('');
     }
-    console.log('Markdown:', markdown);
   };
 
   const handleSubmit = (e, title, description) => {

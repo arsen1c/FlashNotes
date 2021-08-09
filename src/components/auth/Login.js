@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import { SpinnerSmall } from '../Animations';
+import { SpinnerSmall } from '../animations/Animations';
 
 const Login = (porps) => {
   const [email, setEmail] = useState('');
@@ -15,7 +15,7 @@ const Login = (porps) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setbuttonText(<SpinnerSmall />);
-    // Request to server
+    
     fetch(server, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -24,14 +24,11 @@ const Login = (porps) => {
       body: JSON.stringify({ email, password }),
     })
       .then((res) => {
-        // console.log(res);
         if (res.status === 401) {
-          // console.log(res)
           setErrorText('invalid credentials');
           throw new Error('invalid credentials');
         }
         return history.push('/notes');
-        // return res.json();
       })
       .catch((err) => {
         setbuttonText('Login');

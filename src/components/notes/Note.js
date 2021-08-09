@@ -14,7 +14,6 @@ const Note = ({ notes, id }) => {
     setshowModal(value);
   };
 
-  // Get note with proper id
   const note = notes.filter((item, index) => {
     return item.id === parseInt(id, 10);
   });

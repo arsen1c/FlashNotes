@@ -1,7 +1,7 @@
 import NotesHome from './NotesHome.js';
 import useFetch from '../../hooks/useFetch';
 import React from 'react';
-import { Spinner } from '../Animations';
+import { Spinner } from '../animations/Animations';
 import { Redirect } from 'react-router-dom';
 
 function Notes() {

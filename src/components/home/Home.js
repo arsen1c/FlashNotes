@@ -7,7 +7,7 @@ export default function Home() {
         <span role="img" aria-label="note">
           📝
         </span>{' '}
-        Keep your notes organized{' '}
+        Keep your notes organized
       </h1>
       <Link to="/notes">
         <i className="fas fa-chevron-circle-right fa-3x next"></i>

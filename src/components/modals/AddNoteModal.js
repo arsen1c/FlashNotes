@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
-import { SpinnerSmall } from '../Animations';
+import { SpinnerSmall } from '../animations/Animations';
 import ReactMarkdown from 'react-markdown';
 
 export default function AddTodoModal(props) {
@@ -30,7 +30,6 @@ export default function AddTodoModal(props) {
       setMarkdownButton('Enable preview');
       setpreviwButton('');
     }
-    console.log('Markdown:', markdown);
   };
 
   const handleSubmit = (e) => {
@@ -59,7 +58,6 @@ export default function AddTodoModal(props) {
           return res.json();
         })
         .then((data) => {
-          console.log(data);
           history.go('/notes');
         })
         .catch((err) => {
