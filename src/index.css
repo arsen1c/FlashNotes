@@ -83,7 +83,7 @@ pre {
   overflow-x: auto;
   margin: 1rem 0;
 }
-code {
+code, .shareLink {
   background: var(--main-bg);
   font-family: 'Courier New', monospace;
   font-size: 0.8em;
@@ -747,6 +747,40 @@ form .learn-more a {
   }
 }
 
+.share-modal {
+  min-width: 200px;
+  font-size: 1.2rem;
+  max-height: 90%;
+  margin-top: -10rem;
+}
+
+span.close-modal-btn {
+  display: flex;
+  justify-content: right;
+  margin: 1rem;
+  font-size: large;
+  font-weight: bold;
+} 
+
+.shareLink {
+  background: var(--border-dark);
+  padding: 1rem;
+}
+
+.newLink {
+  padding: 1rem;
+  background: var(--main-bg);
+  color: var(--accent-color);
+  border: 2px solid var(--border-dark);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: medium;
+}
+.newLink:hover {
+  background: var(--accent-color);
+  color: white;
+  transition: all 800ms ease;
+}
 /*  SPINNER  */
 .shapes-8 {
   width: 40px;
@@ -809,3 +843,4 @@ form .learn-more a {
     transform: rotate(1turn);
   }
 }
+

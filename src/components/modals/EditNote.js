@@ -15,8 +15,8 @@ export default function EditNote(props) {
   const [markdownButton, setMarkdownButton] = useState('Enable preview');
   const [previewButton, setpreviwButton] = useState('');
 
-  // const localhost = 'http://localhost:4000/api/notes';
-  const server = 'https://react-notes-api.vector2912.repl.co/api/notes';
+  const localhost = 'http://localhost:4000/api/notes';
+  // const server = 'https://react-notes-api.vector2912.repl.co/api/notes';
 
   const { id } = useParams();
 
@@ -38,7 +38,7 @@ export default function EditNote(props) {
     try {
       e.preventDefault();
 
-      fetch(`${server}/${parseInt(id, 10)}`, {
+      fetch(`${localhost}/${parseInt(id, 10)}`, {
         method: 'PUT',
         credentials: 'include',
         headers: {

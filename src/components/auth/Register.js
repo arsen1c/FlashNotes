@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { SpinnerSmall } from '../animations/Animations';
+import { server } from '../../config';
 
 const Register = (porps) => {
   const [username, setUsername] = useState('');
@@ -14,9 +15,6 @@ const Register = (porps) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setbuttonText(<SpinnerSmall />);
-
-    // const localhost = 'http://localhost:4000/api';
-    const server = 'https://react-notes-api.vector2912.repl.co/api';
 
     fetch(`${server}/register`, {
       method: 'POST',

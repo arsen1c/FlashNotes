@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../header/Header';
 import AddNoteModal from '../modals/AddNoteModal';
+import { server } from '../../config';
 
 export default function Home(props) {
   const [showModal, setshowModal] = useState(false);
@@ -11,9 +12,6 @@ export default function Home(props) {
     setshowModal(value);
   };
 
-  // const localhost = 'http://localhost:4000/api/notes';
-  const server = 'https://react-notes-api.vector2912.repl.co/api/notes';
-
   const handleDelete = (e, noteId) => {
     const answer = window.confirm('Do you want to delete this note?');
 
@@ -21,7 +19,7 @@ export default function Home(props) {
       const parentElement = e.target.parentElement;
       parentElement.parentElement.parentElement.style.opacity = '0.5';
       parentElement.innerText = 'Deleting...';
-      fetch(`${server}/${noteId}`, {
+      fetch(`${server}/notes/${noteId}`, {
         method: 'DELETE',
         credentials: 'include',
       })

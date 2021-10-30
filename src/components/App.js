@@ -5,6 +5,7 @@ import Navbar from './navbar/Navbar.jsx';
 import Login from './auth/Login.js';
 import Register from './auth/Register.js';
 import { Me } from './home/Me.js';
+import ShareNotes from './notes/ShareNote';
 import Home from './home/Home.js';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/me">
             <Me />
+          </Route>
+          <Route path="/:username/:link">
+            <ShareNotes />
           </Route>
         </Switch>
       </div>

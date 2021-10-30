@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { SpinnerSmall } from '../animations/Animations';
+import { server } from '../../config';
 
 const Login = (porps) => {
   const [email, setEmail] = useState('');
@@ -9,14 +10,11 @@ const Login = (porps) => {
   const [buttonText, setbuttonText] = useState('Login');
   const history = useHistory();
 
-  // const localhost = 'http://localhost:4000/api/login';
-  const server = 'https://react-notes-api.vector2912.repl.co/api/login';
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setbuttonText(<SpinnerSmall />);
 
-    fetch(server, {
+    fetch(`${server}/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       withCredentials: true,
