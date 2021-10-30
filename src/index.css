@@ -479,7 +479,7 @@ form .learn-more a {
 }
 /* Todo Details Page */
 
-.details {
+.details, .passwordDiv {
   position: relative;
   margin: 5rem auto;
   max-width: 700px;
@@ -510,6 +510,35 @@ form .learn-more a {
   margin-top: 1rem;
   text-align: right;
   cursor: pointer;
+}
+.passwordDiv {
+  max-width: 500px;
+}
+.passwordDiv > .passwordWarning  {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.passwordDiv > .passwordWarning > span {
+  /* border-bottom: 2px solid var(--accent-color); */
+  /* text-decoration: underline; */
+  font-weight: 600;
+  
+}
+.passwordDiv > form > label {
+  font-weight: 400;
+}
+.passwordDiv > form > button {
+  margin-top: 2rem;
+  background-color: var(--main-bg);
+  padding: .5rem;
+  border: 1px solid var(--main-bg);
+  color: var(--main-font-color);
+  cursor: pointer;
+  border-radius: 3px;
+}
+.passwordDiv > form > button:hover {
+  background: var(--accent-color);
+  transition: all 800ms ease;
 }
 
 /*  Login Form  */
@@ -751,10 +780,16 @@ form .learn-more a {
   min-width: 200px;
   font-size: 1.2rem;
   max-height: 90%;
-  margin-top: -10rem;
+  /* margin-top: -10rem; */
 }
 
-span.close-modal-btn {
+.error {
+  color: var(--red);
+  font-size: 0.8em;
+  margin-top: 1rem;
+}
+
+.share-modal > span.close-modal-btn {
   display: flex;
   justify-content: right;
   margin: 1rem;
@@ -765,10 +800,11 @@ span.close-modal-btn {
 .shareLink {
   background: var(--border-dark);
   padding: 1rem;
+  overflow-x: auto;
 }
 
-.newLink {
-  padding: 1rem;
+.newLink, .newPassword > form > button {
+  padding: .5rem;
   background: var(--main-bg);
   color: var(--accent-color);
   border: 2px solid var(--border-dark);
@@ -776,7 +812,14 @@ span.close-modal-btn {
   cursor: pointer;
   font-size: medium;
 }
-.newLink:hover {
+.newPassword > form {
+  margin-top: 1rem;
+}
+.newPassword > form > button {
+  margin-top: 1rem;
+}
+.newLink:hover,
+.newPassword > form > button:hover {
   background: var(--accent-color);
   color: white;
   transition: all 800ms ease;

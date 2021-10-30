@@ -60,6 +60,7 @@ const Note = ({ user, notes, id }) => {
           onClose={() => handleShareModal(false)}
           show={showShareModal}
           user={user}
+          password={note[0].password}
         />
       </div>
     </div>

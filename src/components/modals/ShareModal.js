@@ -3,11 +3,41 @@ import { SpinnerSmall } from '../animations/Animations';
 import { useParams } from 'react-router-dom';
 import { server, client } from '../../config';
 
-export default function ShareModal({user, show, onClose, sharelink}) {
-  const [buttonText, setbuttonText] = useState('Submit');
+export default function ShareModal({password, user, show, onClose, sharelink}) {
+  const [buttonText, setbuttonText] = useState('Set');
   const [link, setlink] = useState(sharelink);
+  const [newpassword, setnewpassword] = useState(password);
 
   const { id } = useParams();
+
+  const handlePassword = (e) => {
+    setnewpassword(e.target.value);
+  }
+
+  const handlePasswordsubmit = (e) => {
+    e.preventDefault();
+
+    setbuttonText(<SpinnerSmall />);
+
+    fetch(`${server}/newpass/${id}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({newpassword})
+    }).then(async (res) => {
+      if (!res.ok) {
+        console.log(await res.json());
+        throw new Error("Error");
+      }
+      setbuttonText("Submit");
+      return await res.json();
+    }).then(data => {
+      console.log("Success");
+    }).catch(e => {
+      console.log(e);
+      return setbuttonText("Submit");
+    })
+  }
 
   const handleGenerateLink = (id) => {
     fetch(`${server}/generatelink/${id}`, {
@@ -41,6 +71,12 @@ export default function ShareModal({user, show, onClose, sharelink}) {
           <div className="shareLink">{`${client}/${user}/${link}`}</div>
           <br />
           <button className="newLink" onClick={() => handleGenerateLink(id)}>Generate new link</button>
+          <div className="newPassword">
+            <form>
+              <input onChange={handlePassword} placeholder="New password" value={newpassword} />
+              <button onClick={handlePasswordsubmit}>{buttonText}</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
