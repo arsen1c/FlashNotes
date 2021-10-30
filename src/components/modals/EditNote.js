@@ -3,6 +3,7 @@ import { SpinnerSmall } from '../animations/Animations';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import { server } from '../../config';
 
 export default function EditNote(props) {
   const [title, setTitle] = useState(props.title ? props.title : '');
@@ -14,9 +15,6 @@ export default function EditNote(props) {
   const [markdown, setMarkdown] = useState(false);
   const [markdownButton, setMarkdownButton] = useState('Enable preview');
   const [previewButton, setpreviwButton] = useState('');
-
-  const localhost = 'http://localhost:4000/api/notes';
-  // const server = 'https://react-notes-api.vector2912.repl.co/api/notes';
 
   const { id } = useParams();
 
@@ -38,7 +36,7 @@ export default function EditNote(props) {
     try {
       e.preventDefault();
 
-      fetch(`${localhost}/${parseInt(id, 10)}`, {
+      fetch(`${server}/notes/${parseInt(id, 10)}`, {
         method: 'PUT',
         credentials: 'include',
         headers: {
